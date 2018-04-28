@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Experiment</title>
+		<script src="jspsych-6.0.2/jspsych.js"></script>
+		<script src="jspsych-6.0.2/plugins/jspsych-audio-slider-response.js"></script>
+		<script src="jspsych-6.0.2/plugins/jspsych-instructions.js"></script>
+		<link href="jspsych-6.0.2/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>
+
+	var instructions = {
+	    type: 'instructions',
+	    pages: [
+	        'Welcome to the experiment. Click next to begin.'
+	    ],
+	    show_clickable_nav: true
+	}
+
+	var trial_1 = {
+	    type: 'audio-slider-response',
+	    stimulus: 'snd/trial1.mp3',
+	    labels: ['Kutuda', 'Dolapta'],
+	    prompt: '<p>Sizce anahtar nerede?</p>'
+	}
+
+	jsPsych.init({
+		timeline: [instructions, trial_1]
+	})
+
+	</script>
+</html>
