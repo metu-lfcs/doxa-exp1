@@ -35,22 +35,3 @@
 	  xhr.setRequestHeader('Content-Type', 'application/json');
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
 	}
-var trial_0= {
-		type: 'survey-likert',
-	  	id: 'C01',
-	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>a<br/><br/><br/>b</div>',
-		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
-  }
-  var trial_1= {
-      type: 'survey-multi-choice',
-	  id: 'Q01',
-      questions: [{prompt: "Why?", options: ['one', 'two', 'three'], required: true}],
-  }
-  
-  jsPsych.init({
-    timeline:[trial_0,trial_1,],
-	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
-    default_iti: 250
-  });
-	</script>
-</html>

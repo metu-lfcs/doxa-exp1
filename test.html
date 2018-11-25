@@ -20,7 +20,9 @@
 	
 	// set the group 
 	var group_id = "bil";
-	
+
+	var fname = group_id.concat("-", subject_id);
+
 	// record the subject_id and group  
 	jsPsych.data.addProperties({
 	  subject: subject_id,
@@ -40,7 +42,7 @@
 	var trial_1 = {
 		type: 'survey-likert',
 		id: 'c01',
-	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça en sevdiği müzik grubunun konserine gitmek istiyor. Sevgilisinin ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını zannediyor.<br/><br/><br/> Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder? </div>',   
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Aça en sevdiği müzik grubunun konserine gitmek istiyor. Sevgilisinin ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını zannediyor.<br/><br/><br/> Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder? </div>',   
       questions: [{prompt: "", labels: scale, required: true}],
   }
 
@@ -60,17 +62,14 @@
 		
 	function saveData(name, data){
 	  var xhr = new XMLHttpRequest();
-	  xhr.open('POST', 'aux/write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
 	  xhr.setRequestHeader('Content-Type', 'application/json');
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
 	}
 
   jsPsych.init({
     timeline: [trial_1,trial_3,trial_4,],
-	on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); },
-    //on_finish: function() {
-     // jsPsych.data.displayData();
-    //},
+	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
     default_iti: 250
   });
 	</script>

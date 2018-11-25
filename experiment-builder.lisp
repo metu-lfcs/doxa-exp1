@@ -4,45 +4,47 @@
 
 (load "aux.lisp")
 (setf *random-state* (make-random-state t))
+
 (defparameter *timeline* nil)
+(defparameter *header-path*  (make-pathname :name "resources/header"))
+(defparameter *header*  (aux:read-file-as-string *header-path*))
 (defparameter *item-file* (make-pathname :name "resources/Items.csv"))
 (defparameter *item-repo* (aux:csv-to-str-list *item-file*))
 (defparameter *trial-count* (let ((init -1)) #'(lambda () (incf init))))
-(defparameter *groups* '((bil "bil") (zannet "zannet") (dusun "düşün")))
-
-(defparameter *header*  
-"<!DOCTYPE html>
-<html>
- <meta charset=\"UTF-8\"> 
-	<head>
-		<title>Experiment</title>
-		<script src=\"jspsych.js\"></script>
-		<script src=\"plugins/jspsych-instructions.js\"></script>
-		<script src=\"plugins/custom-survey-likert.js\"></script>
-		<script src=\"plugins/custom-survey-multi-choice.js\"></script>
-		<script src=\"plugins/jspsych-html-button-response.js\"></script>
-		<link href=\"css/jspsych.css\" rel=\"stylesheet\" type=\"text/css\"></link>
-	</head>
-	<body></body>
-	<script>")
+(defparameter *groups* '((bil "bili") (zannet "zannedi") (dusun "düşünü")))
 
 (defparameter *scale* "['Üzülür','','','','Sevinir']")
 
-(defun build-likert (id texts &optional (scale *scale*))
-  (declare (ignore id))
+(defun build-likert (id text question &optional (scale *scale*))
   (concatenate 'string 
 	"var trial_" (write-to-string (funcall *trial-count*)) "= {
 		type: 'survey-likert',
+	  	id: '"
+		(string id)
+		"',
 	    preamble: '<div style=\"margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)\"><br/><br/>"
-		(car texts)
+		text
 		"<br/><br/><br/>"
-		(cadr texts)
+		question
 		"</div>',
 		questions: [{prompt: '', labels:"
 		scale
 		", required: true}],
-  }"
+  }
+  "
   ))
+
+(defun build-question (id prompt options)
+  (concatenate 'string
+	"var trial_" (write-to-string (funcall *trial-count*)) "= {
+      type: 'survey-multi-choice',
+	  id: '"
+	  (string id)
+      "',
+      questions: [{prompt: \"" prompt  "\", options: ['" (first options) "', '" (second options) "', '" (third options) "'], required: true}],
+  }
+  "))
+
 
 (defun build-timeline ()
   (format nil "[~{trial_~a,~}]" (let ((store))
@@ -54,9 +56,7 @@
   "
   jsPsych.init({
     timeline:" (build-timeline) ",
-    on_finish: function() {
-      jsPsych.data.displayData();
-    },
+	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
     default_iti: 250
   });
 	</script>
@@ -68,8 +68,10 @@
 (defun build-experiment (group)
   (let ((exp-path (make-pathname :name (concatenate 'string (string (car group)) "-exp.html")))
 		(store *header*))
-	(update-string store (build-likert 8 '("a" "b")))
+	(update-string store (build-likert 'c01 "a" "b"))
+	(update-string store (build-question 'q01 "Why?" '("one" "two" "three")))
 	(update-string store (build-footer))
+
 	(with-open-file (str exp-path :direction :output :if-does-not-exist :create :if-exists :overwrite)
 	  (format str "~A" store))))
 

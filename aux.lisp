@@ -14,6 +14,7 @@
 		   :string-to-list
 		   :csv-to-str-list
 		   :shuffle-list
+		   :read-file-as-string 
 		   ))
 
 (in-package aux)
@@ -130,6 +131,16 @@
 		(do ((x (read-line str nil :eof) (read-line str nil :eof))
 			 (store nil (cons (proc-line x) store)))
 		  ((eq x :eof) (reverse store))))))
+
+
+(defun read-file-as-string (pname)
+  (with-open-file (str pname :direction :input) 
+	(do ((line (read-line str nil :eof) (read-line str nil :eof))
+		 (store "" (concatenate 'string store (format nil "~A~%" line))))
+	  ((eq line :eof) store))))
+
+
+
 
 
 (defun random-pick (seq)
