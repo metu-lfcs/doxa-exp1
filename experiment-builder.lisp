@@ -3,17 +3,11 @@
 ;;;
 
 (load "aux.lisp")
-
 (setf *random-state* (make-random-state t))
-
 (defparameter *timeline* nil)
-
 (defparameter *item-file* (make-pathname :name "resources/Items.csv"))
-
 (defparameter *item-repo* (aux:csv-to-str-list *item-file*))
-
 (defparameter *trial-count* (let ((init -1)) #'(lambda () (incf init))))
-
 (defparameter *groups* '((bil "bil") (zannet "zannet") (dusun "düşün")))
 
 (defparameter *header*  

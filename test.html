@@ -57,13 +57,6 @@
     choices: ['Bir sonraki hikayeyi gormek icin tiklayiniz.'],
   }
 
-  var trial_5 = {
-      type: 'survey-multi-choice',
-	  id: 'q02',
-      questions: [{prompt: "hololo", options: ['Sevgilisi', 'Arkadaşları', 'Ailesi'], required: true}],
-  }
-
-
 		
 	function saveData(name, data){
 	  var xhr = new XMLHttpRequest();
@@ -73,7 +66,7 @@
 	}
 
   jsPsych.init({
-    timeline: [trial_1,trial_3,trial_4,trial_5,],
+    timeline: [trial_1,trial_3,trial_4,],
 	on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); },
     //on_finish: function() {
      // jsPsych.data.displayData();
