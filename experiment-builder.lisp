@@ -6,6 +6,7 @@
 (setf *random-state* (make-random-state t))
 
 (defparameter *timeline* nil)
+(defparameter "filler-profile" '(3,2,3,3,2,3,2))
 (defparameter *header-path*  (make-pathname :name "resources/header"))
 (defparameter *header*  (aux:read-file-as-string *header-path*))
 (defparameter *item-file* (make-pathname :name "resources/Items.csv"))
@@ -50,7 +51,6 @@
   (format nil "[~{trial_~a,~}]" (let ((store))
 								  (dotimes (x (funcall *trial-count*)(reverse store))
 									(push x store)))))
-
 (defun build-footer ()
   (concatenate 'string
   "
@@ -65,13 +65,42 @@
 (defmacro update-string (name str)
   `(setf ,name (concatenate 'string ,name ,str)))
 
+
+(defun fetch-items (char-prefix)
+  " c: critical f: filler; they come paired with their questions" 
+  (mapcar 
+	#'(lambda (x)
+		(let* ((id (car x))
+			   (num (subseq id 1 3))
+			   (key (concatenate 'string "Q" num)))
+		  (list x (assoc key *item-repo* :test #'equal))))
+	(remove-if-not
+	  #'(lambda (x)
+		  (let ((word (car x)))
+			(and (plusp (length word)) (eq (char (car x) 0) char-prefix))))
+	  *item-repo*)))
+
+(defun make-item-repo (char-prefix)
+  (let ((item-list (aux:shuffle-list (fetch-items char-prefix))))
+	#'(lambda ()
+		(pop item-list))))
+
+(defparameter *give-critical* (make-item-repo #\C))
+(defparameter *give-filler* (make-item-repo #\C))
+
+
+
 (defun build-experiment (group)
   (let ((exp-path (make-pathname :name (concatenate 'string (string (car group)) "-exp.html")))
 		(store *header*))
+	(dolist (n *filler-profile*)
+	  (dotimes (i n)
+		(let ((filler (funcall *give-filler*)))
+		  (update-string store (build-question (car filler) (cadr filler) (cddr filler))))) )
 	(update-string store (build-likert 'c01 "a" "b"))
-	(update-string store (build-question 'q01 "Why?" '("one" "two" "three")))
 	(update-string store (build-footer))
 
 	(with-open-file (str exp-path :direction :output :if-does-not-exist :create :if-exists :overwrite)
 	  (format str "~A" store))))
+
 
