@@ -5,13 +5,27 @@
 		<title>Experiment 1</title>
 		<script src="jspsych.js"></script>
 		<script src="plugins/jspsych-instructions.js"></script>
-		<script src="plugins/jspsych-survey-likert.js"></script>
-		<script src="plugins/jspsych-survey-multi-choice.js"></script>
+		<script src="plugins/custom-survey-likert.js"></script>
+		<script src="plugins/custom-survey-multi-choice.js"></script>
 		<script src="plugins/jspsych-html-button-response.js"></script>
 		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
 	</head>
 	<body></body>
 	<script>
+
+
+
+	// generate a random subject ID with 15 characters
+	var subject_id = jsPsych.randomization.randomID(5);
+	
+	// set the group 
+	var group_id = "bil";
+	
+	// record the subject_id and group  
+	jsPsych.data.addProperties({
+	  subject: subject_id,
+	  group: group_id
+	});
 
     var scale = ["Üzülür", "", "", "", "Sevinir"];
 
@@ -25,41 +39,45 @@
 
 	var trial_1 = {
 		type: 'survey-likert',
+		id: 'c01',
 	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça en sevdiği müzik grubunun konserine gitmek istiyor. Sevgilisinin ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını zannediyor.<br/><br/><br/> Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder? </div>',   
       questions: [{prompt: "", labels: scale, required: true}],
   }
 
-  var trial_2 = {
-      type: 'survey-likert',
-	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça\'ya kim sürpriz yapmak istemektedir?</div>',   
-      questions: [{prompt: "", labels: ['Sevgilisi', 'Arkadaşları', 'Ailesi'], required: true}],
-  }
 
   var trial_3 = {
       type: 'survey-multi-choice',
-	  name: 'q01',
-      questions: [{prompt: "hololo", options: ['Sevgilisi', 'Arkadaşları', 'Ailesi'], required: true}],
+	  id: 'q01',
+      questions: [{prompt: "Ayça'ya kim sürpriz yapmak istemektedir?", options: ['Sevgilisi', 'Arkadaşları', 'Ailesi'], required: true}],
   }
 
   var trial_4 = {
     type: 'html-button-response',
     stimulus: '',
     choices: ['Bir sonraki hikayeyi gormek icin tiklayiniz.'],
-    prompt: "<p>Bir sonraki hikayeyi gormek icin tiklayiniz.</p>"
   }
 
   var trial_5 = {
       type: 'survey-multi-choice',
-	  name: 'q02',
+	  id: 'q02',
       questions: [{prompt: "hololo", options: ['Sevgilisi', 'Arkadaşları', 'Ailesi'], required: true}],
   }
 
 
+		
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'aux/write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
   jsPsych.init({
-    timeline: [trial_1,trial_2,trial_3,trial_4,trial_5],
-    on_finish: function() {
-      jsPsych.data.displayData();
-    },
+    timeline: [trial_1,trial_3,trial_4,trial_5,],
+	on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); },
+    //on_finish: function() {
+     // jsPsych.data.displayData();
+    //},
     default_iti: 250
   });
 	</script>

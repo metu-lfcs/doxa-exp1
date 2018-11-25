@@ -39,6 +39,12 @@ jsPsych.plugins['survey-likert'] = (function() {
                      description: 'Makes answering questions required.'}
         }
       },
+      id: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'ID',
+        default: null,
+        description: 'Item ID associated with the trial.'
+      },
       preamble: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Preamble',
@@ -48,7 +54,7 @@ jsPsych.plugins['survey-likert'] = (function() {
       button_label: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label',
-        default:  'Continue',
+        default:  'Sonraki',
         description: 'Label of the button.'
       }
     }
@@ -63,7 +69,7 @@ jsPsych.plugins['survey-likert'] = (function() {
     html += ".custom-survey-likert-statement { display:block; font-size: 16px; padding-top: 40px; margin-bottom:10px; }"+
       ".custom-survey-likert-opts { list-style:none; width:100%; margin:0; padding:0 0 35px; display:block; font-size: 14px; line-height:1.1em; }"+
       ".custom-survey-likert-opt-label { line-height: 1.1em; color: #444; }"+
-      ".custom-survey-likert-opts:before { content: ''; position:relative; top:11px; /*left:9.5%;*/ display:block; background-color:#efefef; height:4px; width:100%; }"+
+      ".custom-survey-likert-opts:before { content: ''; position:relative; left: 33.4%; top:11px; /*left:9.5%;*/ display:block; background-color:#efefef; height:4px; width:32%; }"+
       ".custom-survey-likert-opts:last-of-type { border-bottom: 0; }"+
       ".custom-survey-likert-opts li { display:inline-block; /*width:19%;*/ text-align:center; vertical-align: top; }"+
       ".custom-survey-likert-opts li input[type=radio] { display:block; position:relative; top:0; left:50%; margin-left:-6px; }"
@@ -80,7 +86,7 @@ jsPsych.plugins['survey-likert'] = (function() {
       // add question
       html += '<label class="custom-survey-likert-statement">' + trial.questions[i].prompt + '</label>';
       // add options
-      var width = 100 / trial.questions[i].labels.length;
+      var width = 40 / trial.questions[i].labels.length;
       var options_string = '<ul class="custom-survey-likert-opts" data-radio-group="Q' + i + '">';
       for (var j = 0; j < trial.questions[i].labels.length; j++) {
         options_string += '<li style="width:' + width + '%"><input type="radio" name="Q' + i + '" value="' + j + '"';
@@ -125,6 +131,7 @@ jsPsych.plugins['survey-likert'] = (function() {
       // save data
       var trial_data = {
         "rt": response_time,
+		"id": trial.id,
         "responses": JSON.stringify(question_data)
       };
 

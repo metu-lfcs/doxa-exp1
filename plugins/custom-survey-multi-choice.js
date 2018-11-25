@@ -43,11 +43,11 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
                         description: 'If true, then questions are centered and options are displayed horizontally.'},
         }
       },
-      preamble: {
+      id: {
         type: jsPsych.plugins.parameterType.STRING,
-        pretty_name: 'Preamble',
+        pretty_name: 'ID',
         default: null,
-        description: 'HTML formatted string to display at the top of the page above all the questions.'
+        description: 'Item ID associated with the trial.'
       },
       preamble: {
         type: jsPsych.plugins.parameterType.STRING,
@@ -58,7 +58,7 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
       button_label: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label',
-        default:  'Continue',
+        default:  'Sonraki',
         description: 'Label of the button.'
       }
     }
@@ -168,6 +168,7 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
       // save data
       var trial_data = {
         "rt": response_time,
+		"id": trial.id,
         "responses": JSON.stringify(question_data)
       };
       display_element.innerHTML = '';

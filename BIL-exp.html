@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="UTF-8"> 
+	<head>
+		<title>Experiment</title>
+		<script src="jspsych.js"></script>
+		<script src="plugins/jspsych-instructions.js"></script>
+		<script src="plugins/custom-survey-likert.js"></script>
+		<script src="plugins/custom-survey-multi-choice.js"></script>
+		<script src="plugins/jspsych-html-button-response.js"></script>
+		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>var trial_0= {
+		type: 'survey-likert',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>a<br/><br/><br/>b</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  }
+  jsPsych.init({
+    timeline:[trial_0,],
+    on_finish: function() {
+      jsPsych.data.displayData();
+    },
+    default_iti: 250
+  });
+	</script>
+</html>

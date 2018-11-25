@@ -32,7 +32,7 @@ jsPsych.plugins["html-button-response"] = (function() {
       button_html: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button HTML',
-        default: '<button class="jspsych-btn">%choice%</button>',
+        default: '<button class="jspsych-custom-btn">%choice%</button>',
         array: true,
         description: 'The html of the button. Can create own style.'
       },
