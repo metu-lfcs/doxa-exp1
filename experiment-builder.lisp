@@ -6,9 +6,11 @@
 (setf *random-state* (make-random-state t))
 
 (defparameter *timeline* nil)
-(defparameter "filler-profile" '(3,2,3,3,2,3,2))
+(defparameter *filler-profile* '(3 2 3 3 2 2 3))
 (defparameter *header-path*  (make-pathname :name "resources/header"))
 (defparameter *header*  (aux:read-file-as-string *header-path*))
+(defparameter *preamble-path*  (make-pathname :name "resources/preamble"))
+(defparameter *preamble*  (aux:read-file-as-string *preamble-path*))
 (defparameter *item-file* (make-pathname :name "resources/Items.csv"))
 (defparameter *item-repo* (aux:csv-to-str-list *item-file*))
 (defparameter *trial-count* (let ((init -1)) #'(lambda () (incf init))))
@@ -16,41 +18,72 @@
 
 (defparameter *scale* "['Üzülür','','','','Sevinir']")
 
-(defun build-likert (id text question &optional (scale *scale*))
-  (concatenate 'string 
-	"var trial_" (write-to-string (funcall *trial-count*)) "= {
+
+
+
+(defun insert-crit (text)
+  (position #\$ text))
+
+
+(defun build-likert (item &key (replace-dollar nil) (scale *scale*))
+  (let ((id (first item))
+		(text1 (second item))
+		(text2 (third item))
+		(question (fourth item)))
+	(concatenate 'string 
+	"
+	var trial_" (write-to-string (funcall *trial-count*)) "= {
 		type: 'survey-likert',
 	  	id: '"
-		(string id)
+		id
 		"',
 	    preamble: '<div style=\"margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)\"><br/><br/>"
-		text
+		text1
+		" "
+		(if replace-dollar
+		  (aux:replace-char-with-str #\$ replace-dollar text2)
+		  text2)
 		"<br/><br/><br/>"
 		question
 		"</div>',
 		questions: [{prompt: '', labels:"
 		scale
 		", required: true}],
-  }
-  "
-  ))
+  };
+  ")))
 
-(defun build-question (id prompt options)
-  (concatenate 'string
-	"var trial_" (write-to-string (funcall *trial-count*)) "= {
+(defun build-question (item)
+  (let* ((id (car item))
+		 (prompt (cadr item))
+		 (options (cddr item))
+		 (correct (car options))
+		 (new-options (aux:shuffle-list options)))
+	(concatenate 'string
+	"
+	var trial_" (write-to-string (funcall *trial-count*)) "= {
       type: 'survey-multi-choice',
 	  id: '"
-	  (string id)
+	  id
       "',
-      questions: [{prompt: \"" prompt  "\", options: ['" (first options) "', '" (second options) "', '" (third options) "'], required: true}],
-  }
-  "))
+	  correct: '"
+	  correct
+	  "',
+      questions: [{prompt: \"" prompt  "\", options: ['" (first new-options) "', '" (second new-options) "', '" (third new-options) "'], required: true}],
+  };
+  ")))
+
+(defun declare-group (group)
+  (concatenate 'string
+			   "
+	// set the group 
+	var group_id = \"" (string-downcase (string group)) "\";"))
 
 
 (defun build-timeline ()
-  (format nil "[~{trial_~a,~}]" (let ((store))
-								  (dotimes (x (funcall *trial-count*)(reverse store))
-									(push x store)))))
+	(format nil "[~{trial_~a,~}]" (let ((store))
+									(dotimes (x (funcall *trial-count*) (reverse store))
+									  (push x store)))))
+
 (defun build-footer ()
   (concatenate 'string
   "
@@ -86,21 +119,38 @@
 		(pop item-list))))
 
 (defparameter *give-critical* (make-item-repo #\C))
-(defparameter *give-filler* (make-item-repo #\C))
+(defparameter *give-filler* (make-item-repo #\F))
 
 
 
 (defun build-experiment (group)
   (let ((exp-path (make-pathname :name (concatenate 'string (string (car group)) "-exp.html")))
 		(store *header*))
+	(update-string store (declare-group (car group)))
+	(update-string store *preamble*)
 	(dolist (n *filler-profile*)
 	  (dotimes (i n)
-		(let ((filler (funcall *give-filler*)))
-		  (update-string store (build-question (car filler) (cadr filler) (cddr filler))))) )
-	(update-string store (build-likert 'c01 "a" "b"))
+		(let* ((item (funcall *give-filler*))
+			   (filler (car item))
+			   (question (cadr item)))
+		  (update-string store (build-likert filler))
+		  (update-string store (build-question question))))
+	  (let* ((item (funcall *give-critical*))
+			 (critical (car item))
+			 (question (cadr item)))
+		(unless (null item)
+		  (update-string store (build-likert critical :replace-dollar (cadr group)))
+		  (update-string store (build-question question)))))
 	(update-string store (build-footer))
-
 	(with-open-file (str exp-path :direction :output :if-does-not-exist :create :if-exists :overwrite)
 	  (format str "~A" store))))
 
-
+(defun main ()
+  (dolist (g *groups*)
+	(print g)
+	(build-experiment g)
+	(setf *trial-count* (let ((init -1)) #'(lambda () (incf init))))
+	(setf *give-critical* (make-item-repo #\C))
+	(setf *give-filler* (make-item-repo #\F))
+	
+	))

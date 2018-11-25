@@ -15,6 +15,7 @@
 		   :csv-to-str-list
 		   :shuffle-list
 		   :read-file-as-string 
+		   :replace-char-with-str
 		   ))
 
 (in-package aux)
@@ -157,3 +158,12 @@
 	shuffled
 	(let ((pick (random-pick lst)))
 	  (shuffle-list (remove-first pick lst) (cons pick shuffled))))))
+
+(defun replace-char-with-str (chr replace-str main-str)
+  (let ((pos (position chr main-str)))
+	(if pos
+	  (concatenate 'string 
+				 (subseq main-str 0 pos)
+				 replace-str
+				 (subseq main-str (+ pos 1) (length main-str)))
+	  main-str)))

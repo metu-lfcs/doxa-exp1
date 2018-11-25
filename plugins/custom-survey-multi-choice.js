@@ -49,6 +49,12 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
         default: null,
         description: 'Item ID associated with the trial.'
       },
+      correct: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Correct',
+        default: null,
+        description: 'Correct response to the trial.'
+      },
       preamble: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Preamble',
@@ -169,6 +175,7 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
       var trial_data = {
         "rt": response_time,
 		"id": trial.id,
+		"correct": trial.correct,
         "responses": JSON.stringify(question_data)
       };
       display_element.innerHTML = '';

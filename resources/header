@@ -15,23 +15,3 @@
 
 
 
-	// generate a random subject ID with 15 characters
-	var subject_id = jsPsych.randomization.randomID(5);
-	
-	// set the group 
-	var group_id = "bil";
-
-	var fname = group_id.concat("-", subject_id);
-
-	// record the subject_id and group  
-	jsPsych.data.addProperties({
-	  subject: subject_id,
-	  group: group_id
-	});
-
-	function saveData(name, data){
-	  var xhr = new XMLHttpRequest();
-	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-	  xhr.setRequestHeader('Content-Type', 'application/json');
-	  xhr.send(JSON.stringify({filename: name, filedata: data}));
-	}

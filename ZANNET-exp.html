@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="UTF-8"> 
+	<head>
+		<title>Experiment 1</title>
+		<script src="jspsych.js"></script>
+		<script src="plugins/jspsych-instructions.js"></script>
+		<script src="plugins/custom-survey-likert.js"></script>
+		<script src="plugins/custom-survey-multi-choice.js"></script>
+		<script src="plugins/jspsych-html-button-response.js"></script>
+		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>
+
+
+
+
+	// set the group 
+	var group_id = "zannet";	// generate a random subject ID with 15 characters
+	var subject_id = jsPsych.randomization.randomID(8);
+	
+	var fname = group_id.concat("-", subject_id);
+
+	// record the subject_id and group  
+	jsPsych.data.addProperties({
+	  subject: subject_id,
+	  group: group_id
+	});
+
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
+	var trial_0= {
+		type: 'survey-likert',
+	  	id: 'F16',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Zeynep ve Leman birbirlerini özledikleri için buluşmaya karar veriyorlar. Zeynep buluşacakları kafeye erkenden gidiyor.<br/><br/><br/>Leman geldiğinde Zeynep nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_1= {
+      type: 'survey-multi-choice',
+	  id: 'Q16',
+	  correct: 'Kafe',
+      questions: [{prompt: "Zeynep ve Leman nerede buluşacaklardır?", options: ['Park', 'Kafe', 'Restoran'], required: true}],
+  };
+  
+	var trial_2= {
+		type: 'survey-likert',
+	  	id: 'F11',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Oğuzhan mağazanın vitrininde gördüğü ayakkabıyı çok beğeniyor. Birkaç gün sonra ayakkabının indirime girdiğini duyuyor.<br/><br/><br/>Mağazaya gidip ayakkabının satıldığını öğrenince nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_3= {
+      type: 'survey-multi-choice',
+	  id: 'Q11',
+	  correct: 'Ayakkabı',
+      questions: [{prompt: "Oğuzhan’ın vitrinde beğendiği şey hangisidir?", options: ['Ayakkabı', 'Pantolon', 'Ceket'], required: true}],
+  };
+  
+	var trial_4= {
+		type: 'survey-likert',
+	  	id: 'F09',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Mehmet öğle yemeklerini her gün yemekhanede yiyor. Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.<br/><br/><br/>Öğlen yemeğe gidip pırasa olmadığını görünce nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_5= {
+      type: 'survey-multi-choice',
+	  id: 'Q09',
+	  correct: 'Yemekhane',
+      questions: [{prompt: "Mehmet’in öğle yemeklerini yediği yer hangisidir?", options: ['Kantin', 'Yemekhane', 'Restoran'], required: true}],
+  };
+  
+	var trial_6= {
+		type: 'survey-likert',
+	  	id: 'C05',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Selin bu dönem matematikten geçmeyi çok istiyor. Finalden çıktığında soruların çoğunu doğru yaptığını zannediyor.<br/><br/><br/>Notlar açıklandığında Selin nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_7= {
+      type: 'survey-multi-choice',
+	  id: 'Q05',
+	  correct: 'Matematik',
+      questions: [{prompt: "Selin’in geçmekte sıkıntı yaşadığı ders hangisidir?", options: ['Edebiyat', 'Fizik', 'Matematik'], required: true}],
+  };
+  
+	var trial_8= {
+		type: 'survey-likert',
+	  	id: 'F13',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Elif Kars’a gitmek için tren bileti almak istiyor. Biletlerin salı günü satışa çıkacağını okuyor.<br/><br/><br/>Salı günü bütün biletlerin satıldığını öğrenince nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_9= {
+      type: 'survey-multi-choice',
+	  id: 'Q13',
+	  correct: 'Kars',
+      questions: [{prompt: "Elif nereye gitmek istemektedir?", options: ['Ardahan', 'Batum', 'Kars'], required: true}],
+  };
+  
+	var trial_10= {
+		type: 'survey-likert',
+	  	id: 'F14',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Barış tatilde İstanbul’daki arkadaşlarını ziyaret etmek istiyor. Tatilin ikinci haftasında İstanbul’a gitmeyi planlıyor.<br/><br/><br/>Arkadaşlarından biri onu ziyarete geldiğinde Barış nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_11= {
+      type: 'survey-multi-choice',
+	  id: 'Q14',
+	  correct: 'Birinci',
+      questions: [{prompt: "Barış tatilin kaçıncı haftasında İstanbul’a gitmeyi planlamıştır?", options: ['Birinci', 'İkinci', 'Üçüncü'], required: true}],
+  };
+  
+	var trial_12= {
+		type: 'survey-likert',
+	  	id: 'C01',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça en sevdiği müzik grubunun konserine gitmek istiyor. Sevgilisinin ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını zannediyor.<br/><br/><br/>Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_13= {
+      type: 'survey-multi-choice',
+	  id: 'Q01',
+	  correct: 'Sevgilisi',
+      questions: [{prompt: "Ayça’ya kim sürpriz yapmak istemektedir?", options: ['Sevgilisi', 'Ailesi', 'Arkadaşları'], required: true}],
+  };
+  
+	var trial_14= {
+		type: 'survey-likert',
+	  	id: 'F15',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Emre aldığı bir dersten kalmaktan korkuyor. Hocası sınıftan sadece altı kişinin geçeceğini söylüyor.<br/><br/><br/>Notlar açıklanıp kaldığını öğrendiğinde Emre nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_15= {
+      type: 'survey-multi-choice',
+	  id: 'Q15',
+	  correct: 'Altı',
+      questions: [{prompt: "Dersi kaç kişinin geçeceği söylenmiştir?", options: ['Üç', 'Altı', 'Dokuz'], required: true}],
+  };
+  
+	var trial_16= {
+		type: 'survey-likert',
+	  	id: 'F17',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Taylan kendisine akşam yemeği hazırlıyor. Tencereyi ocağa koyduktan sonra altını açmayı unutuyor.<br/><br/><br/>Yarım saat sonra yemeğin pişmediğini görünce Taylan nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_17= {
+      type: 'survey-multi-choice',
+	  id: 'Q17',
+	  correct: 'Öğle Yemeği',
+      questions: [{prompt: "Taylan hangi öğününü hazırlamaktadır?", options: ['Akşam Yemeği', 'Öğle Yemeği', 'Kahvaltı'], required: true}],
+  };
+  
+	var trial_18= {
+		type: 'survey-likert',
+	  	id: 'F12',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Canan para biriktirmek için bir kumbara alıyor. Bir miktar para biriktirdikten sonra kumbarasını unutuyor.<br/><br/><br/>Aylar sonra kumbarayı bulduğunda nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_19= {
+      type: 'survey-multi-choice',
+	  id: 'Q12',
+	  correct: 'Para Biriktirmek',
+      questions: [{prompt: "Canan hangisini yapmak istemektedir?", options: ['Kumbara Biriktirmek', 'Para Kazanmak', 'Para Biriktirmek'], required: true}],
+  };
+  
+	var trial_20= {
+		type: 'survey-likert',
+	  	id: 'C03',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor. Tatil planından önce ofise yeni bir iş gelmediğini zannediyor.<br/><br/><br/>Aylık iş takvimi açıklandığında Berk nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_21= {
+      type: 'survey-multi-choice',
+	  id: 'Q03',
+	  correct: 'Ofis',
+      questions: [{prompt: "Berk nerede çalışmaktadır?", options: ['Mağaza', 'Fabrika', 'Ofis'], required: true}],
+  };
+  
+	var trial_22= {
+		type: 'survey-likert',
+	  	id: 'F08',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Esra masa tenisi turnuvasının final maçında Göksu’nun tarafını tutuyor. Maç günü Göksu’nun bileğini incittiğini öğreniyor.<br/><br/><br/>Maçı Göksu kazandığında Esra nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_23= {
+      type: 'survey-multi-choice',
+	  id: 'Q08',
+	  correct: 'Masa Tenisi',
+      questions: [{prompt: "Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?", options: ['Sırıkla Atlama', 'Masa Tenisi', 'Basketbol'], required: true}],
+  };
+  
+	var trial_24= {
+		type: 'survey-likert',
+	  	id: 'F23',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Dilara çarpışan arabalara binmek istiyor. Babası Dilara’yı lunaparka götürüyor.<br/><br/><br/>Gidip lunaparkın kapalı olduğunu gördüklerinde Dilara nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_25= {
+      type: 'survey-multi-choice',
+	  id: 'Q23',
+	  correct: 'Çarpışan Arabalar',
+      questions: [{prompt: "Dilara lunaparka ne için gitmek istemektedir?", options: ['Gondol', 'Çarpışan Arabalar', 'Güldüren Aynalar'], required: true}],
+  };
+  
+	var trial_26= {
+		type: 'survey-likert',
+	  	id: 'F19',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Nurcan salı günleri fizik dersine gidiyor. Dersten çıkınca öğretmeninin ödev verdiğini unutuyor.<br/><br/><br/>Pazartesi gecesi ödevi olduğunu hatırladığında Nurcan nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_27= {
+      type: 'survey-multi-choice',
+	  id: 'Q19',
+	  correct: 'Salı',
+      questions: [{prompt: "Nurcan’ın dersi hangi gündür?", options: ['Salı', 'Cuma', 'Çarşamba'], required: true}],
+  };
+  
+	var trial_28= {
+		type: 'survey-likert',
+	  	id: 'C06',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Cenk hayallerindeki işe başvuruyor. Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini zannediyor.<br/><br/><br/>Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_29= {
+      type: 'survey-multi-choice',
+	  id: 'Q06',
+	  correct: 'Müdür',
+      questions: [{prompt: "Cenk’in girdiği mülakatı gerçekleştiren hangisidir?", options: ['Müdür', 'Patron', 'CEO'], required: true}],
+  };
+  
+	var trial_30= {
+		type: 'survey-likert',
+	  	id: 'F24',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Cem Tokyo’ya gitmek için uçak bileti alıyor. Uçuş günü trafiğe yakalanıp havaalanına geç gidiyor.<br/><br/><br/>Uçuşu rötar yaptığı için yetiştiğini görünce Cem nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_31= {
+      type: 'survey-multi-choice',
+	  id: 'Q24',
+	  correct: 'Tokyo',
+      questions: [{prompt: "Cem nereye gitmektedir?", options: ['Londra', 'Tokyo', 'New York'], required: true}],
+  };
+  
+	var trial_32= {
+		type: 'survey-likert',
+	  	id: 'F21',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Simay kamp ateşi için odun toplamaya ormana gidiyor. Yeterli miktarda topladığında geri dönmeye karar veriyor.<br/><br/><br/>Nereden geldiğini hatırlamadığını fark ettiğinde Simay nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_33= {
+      type: 'survey-multi-choice',
+	  id: 'Q21',
+	  correct: 'Odun',
+      questions: [{prompt: "Simay ormanda ne toplamaktadır?", options: ['Odun', 'Çöp', 'Kozalak'], required: true}],
+  };
+  
+	var trial_34= {
+		type: 'survey-likert',
+	  	id: 'C04',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar. Ece Kuzey’in bir dersten kaldığını zannediyor.<br/><br/><br/>Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_35= {
+      type: 'survey-multi-choice',
+	  id: 'Q04',
+	  correct: 'Kamp',
+      questions: [{prompt: "Ece ve kuzey nereye gitmek istemektedir?", options: ['Kamp', 'Konferans', 'Tatil Köyü'], required: true}],
+  };
+  
+	var trial_36= {
+		type: 'survey-likert',
+	  	id: 'F07',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Çağrı bu hafta sonu kardanadam yapmak istiyor. Hava tahminine baktığında Cuma gecesi kar yağacağını görüyor.<br/><br/><br/>Cumartesi sabahı kar yağmadığını gördüğünde nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_37= {
+      type: 'survey-multi-choice',
+	  id: 'Q07',
+	  correct: 'Kardanadam',
+      questions: [{prompt: "Çağrı kar yağınca hangisini yapmak istemektedir?", options: ['Kayak', 'Kartopu savaşı', 'Kardanadam'], required: true}],
+  };
+  
+	var trial_38= {
+		type: 'survey-likert',
+	  	id: 'F10',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Melike yüksek lisans için hedeflediği okula başvuruyor. Başvuruda istenen belgelerden birini eksik gönderdiğini fark ediyor.<br/><br/><br/>Okula yine de kabul edildiğini öğrenince nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_39= {
+      type: 'survey-multi-choice',
+	  id: 'Q10',
+	  correct: 'Yüksek Lisans',
+      questions: [{prompt: "Melike hangi eğitim seviyesi için başvuru yapmıştır?", options: ['Önlisans', 'Lisans', 'Yüksek Lisans'], required: true}],
+  };
+  
+	var trial_40= {
+		type: 'survey-likert',
+	  	id: 'C02',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor. Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını zannediyor.<br/><br/><br/>Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_41= {
+      type: 'survey-multi-choice',
+	  id: 'Q02',
+	  correct: 'Oyuncak Bebek',
+      questions: [{prompt: "Ailesi Burcu’ya genelde ne hediye almaktadır?", options: ['Oyuncak Bebek', 'Oyuncak Araba', 'Ayakkabı'], required: true}],
+  };
+  
+	var trial_42= {
+		type: 'survey-likert',
+	  	id: 'F20',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Funda yolda yürürken yerde bir piyango bileti buluyor. Eve gidip bilete ikramiye çıkıp çıkmadığını kontrol ediyor.<br/><br/><br/>Büyük ikramiye çıktığını öğrendiğinde Funda nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_43= {
+      type: 'survey-multi-choice',
+	  id: 'Q20',
+	  correct: 'Piyango Bileti',
+      questions: [{prompt: "Funda yerde ne bulmuştur?", options: ['Cüzdan', 'Para', 'Piyango Bileti'], required: true}],
+  };
+  
+	var trial_44= {
+		type: 'survey-likert',
+	  	id: 'F22',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Volkan yoğun bir günün ardından eve dönüyor. Kapıya geldiğinde anahtarını bulamıyor.<br/><br/><br/>Biraz sonra ablasının eve geldiğini gördüğünde Volkan nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_45= {
+      type: 'survey-multi-choice',
+	  id: 'Q22',
+	  correct: 'Yoğun',
+      questions: [{prompt: "Volkan nasıl bir gün geçirmiştir?", options: ['Rahat', 'Sıkıcı', 'Yoğun'], required: true}],
+  };
+  
+	var trial_46= {
+		type: 'survey-likert',
+	  	id: 'F18',
+	    preamble: '<div style="margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Aylin’in canı çilek yemek istiyor. Abisi pazara gitmek için evden çıkarken ona çilek almasını söylüyor.<br/><br/><br/>Abisi çilek alıp döndüğünde Aylin nasıl hisseder?</div>',
+		questions: [{prompt: '', labels:['Üzülür','','','','Sevinir'], required: true}],
+  };
+  
+	var trial_47= {
+      type: 'survey-multi-choice',
+	  id: 'Q18',
+	  correct: 'Çilek',
+      questions: [{prompt: "Aylin hangi meyveyi yemek istemektedir?", options: ['Armut', 'Çilek', 'Muz'], required: true}],
+  };
+  
+  jsPsych.init({
+    timeline:[trial_0,trial_1,trial_2,trial_3,trial_4,trial_5,trial_6,trial_7,trial_8,trial_9,trial_10,trial_11,trial_12,trial_13,trial_14,trial_15,trial_16,trial_17,trial_18,trial_19,trial_20,trial_21,trial_22,trial_23,trial_24,trial_25,trial_26,trial_27,trial_28,trial_29,trial_30,trial_31,trial_32,trial_33,trial_34,trial_35,trial_36,trial_37,trial_38,trial_39,trial_40,trial_41,trial_42,trial_43,trial_44,trial_45,trial_46,trial_47,],
+	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
+    default_iti: 250
+  });
+	</script>
+</html>
