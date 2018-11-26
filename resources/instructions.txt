@@ -1,0 +1,14 @@
+﻿Merhaba,
+İnsanların beklentileri veri olarak alındığında çeşitli durumlar karşısında verecekleri duygusal tepkinin yönünün tahmin edilmesi sürecindeki etmenlerin araştırıldığı bu çalışmaya hoş geldiniz.
+Lütfen aşağıda verilen talimatları dikkatlice okuyunuz.
+Talimatlar:
+Birazdan size okuyup hakkında sorular cevaplandırmanız için çeşitli durumlar verilecektir.
+Her verilen durum ile birlikte bir soru sorulacaktır, daha sonra karşınıza aynı durumla ilgili ikinci bir soru çıkacak fakat durum metni ikinci soru ekranında olmayacaktır.
+Her durum için sorulan ilk soruda verilen derecelerden en uygun olduğunu düşündüğünüz cevabı seçip “sonraki” butonuna basınız.
+İkinci soruda da verilen seçeneklerden doğru olduğunu düşündüğünüz cevabı seçip “sonraki” butonuna basınız.
+Her yeni durumdan önce “Devam etmek için buraya tıklayınız.” butonu olan ara sayfaya yönlendirileceksiniz. Lütfen yönergeleri takip ederek testi tamamlayınız.
+
+
+
+Son ekran:?
+Katılımınız için teşekkürler. Lütfen uygulayıcıya deneyi bitirdiğinizi söyleyiniz.
