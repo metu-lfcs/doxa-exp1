@@ -1,0 +1,8 @@
+Birazdan size okuyup hakkında sorular cevaplandırmanız için çeşitli kısa metinler verilecektir. Metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.
+
+İlk olarak her metin ile birlikte bir soru sorulacak ve yanıtlamanız istenecek. Daha sonra metin ekrandan kaldırılıp metindeki durumla ilgili bir soru daha yanıtlamanız istenecek. Üçünü olarak da basit bir aritmetik sorusu sorulacaktır.
+
+Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.
+
+Lütfen yönergeleri takip ederek testi tamamlayın.
+
