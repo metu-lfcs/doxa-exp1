@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="UTF-8"> 
+	<head>
+		<title>Experiment 1</title>
+		<script src="jspsych.js"></script>
+		<script src="plugins/jspsych-instructions.js"></script>
+		<script src="plugins/jspsych-html-button-response.js"></script>
+		<script src="plugins/jspsych-external-html.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>
+
+	//to be able to run the experiment builder
+	//var cp = require('child_process')
+	//var spawn = cp.spawn;
+
+	var subject_id = jsPsych.randomization.randomID(5);
+
+	var subject_email = "not_defined"
+
+	var subject_name = "not_defined"
+
+	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	
+	var fname = "doxa".concat(subject_id, "-", group_id, ".html");
+
+	jsPsych.data.addProperties({
+	  subject: subject_id,
+	  subject_email: subject_email,
+	  subject_name: subject_email,
+	  group: group_id
+	});
+
+	var timeline = [];
+
+	var filler_profile = [3,2,3,3,2,2,3];
+
+	var filler_repo = jsPsych.randomization.shuffle(['f1','f2','f3','f4','f5','f6']); 
+
+	var critical_repo = jsPsych.randomization.shuffle(['c1','c2','c3']);
+
+	var fname = "tatata"
+
+	var filler_clock = 0;
+	var critical_clock = 0;
+
+	for (var i = 0; i < filler_profile.length; i++){
+		var k = filler_profile[i];
+		for (var j = 0; j < k; j++){
+			timeline.push(filler_repo[filler_clock]);
+			filler_clock++;
+		}
+		timeline.push(critical_repo[critical_clock]);
+		critical_clock++;
+	}
+
+
+	var check_consent = function(elem) {
+	  if ($('#consent_checkbox').is(':checked')) {
+	  	subject_email = $('#email_text').val();
+		subject_name = $('#name_text').val();
+	    return true;
+	  }
+	  else {
+	    alert("Deneye katılabilmek için gönüllü katılım kutusunu işaretlemeniz gerekiyor.");
+	    return false;
+	  }
+	  return false;
+	};
+
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
+	var welcome = {
+	  type:'external-html',
+	  url: "resources/welcome.html",
+	  cont_btn: "start",
+	  check_fn: check_consent,
+	};
+
+
+
+  jsPsych.init({
+    timeline: [welcome],
+	on_finish: function() {saveData(fname, jsPsych.data.get().csv());},
+    default_iti: 250
+  });
+	</script>
+</html>
