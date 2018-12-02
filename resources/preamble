@@ -1,13 +1,14 @@
-	// generate a random subject ID with 15 characters
-	var subject_id = jsPsych.randomization.randomID(8);
-	
-	var fname = group_id.concat("-", subject_id);
 
-	// record the subject_id and group  
-	jsPsych.data.addProperties({
-	  subject: subject_id,
-	  group: group_id
-	});
+	var subject_id = jsPsych.randomization.randomID(5);
+
+	var subject_email = "not_defined"
+
+	var subject_name = "not_defined"
+
+	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	
+	var fname = "doxa".concat("-", group_id, "-", subject_id);
+
 
 	function saveData(name, data){
 	  var xhr = new XMLHttpRequest();
@@ -15,3 +16,5 @@
 	  xhr.setRequestHeader('Content-Type', 'application/json');
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
 	}
+
+

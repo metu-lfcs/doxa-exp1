@@ -2,16 +2,16 @@
 <html>
  <meta charset="UTF-8"> 
 	<head>
-		<title>Experiment 1</title>
+		<title>Experiment</title>
 		<script src="jspsych.js"></script>
 		<script src="plugins/jspsych-instructions.js"></script>
+		<script src="plugins/jspsych-html-button-response.js"></script>
+		<script src="plugins/jspsych-external-html.js"></script>
 		<script src="plugins/custom-survey-likert.js"></script>
 		<script src="plugins/custom-survey-multi-choice.js"></script>
-		<script src="plugins/jspsych-html-button-response.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
 	</head>
 	<body></body>
 	<script>
-
-
-

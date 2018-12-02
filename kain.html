@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="UTF-8"> 
+	<head>
+		<title>Experiment</title>
+		<script src="jspsych.js"></script>
+		<script src="plugins/jspsych-instructions.js"></script>
+		<script src="plugins/jspsych-html-button-response.js"></script>
+		<script src="plugins/jspsych-external-html.js"></script>
+		<script src="plugins/custom-survey-likert.js"></script>
+		<script src="plugins/custom-survey-multi-choice.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>
+
+	var subject_id = jsPsych.randomization.randomID(5);
+
+	var subject_email = "not_defined"
+
+	var subject_name = "not_defined"
+
+	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	
+	var fname = "doxa".concat("-", group_id, "-", subject_id);
+
+
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
+
+
+	var check_consent = function(elem) {
+	  if ($('#consent_checkbox').is(':checked')) {
+	  	subject_email = $('#email_text').val();
+		subject_name = $('#name_text').val();
+		jsPsych.data.addProperties({
+		  subject: subject_id,
+		  subject_email: subject_email,
+		  subject_name: subject_name,
+		  group: group_id
+		});
+	    return true;
+	  }
+	  else {
+	    alert("Deneye katılabilmek için gönüllü katılım kutusunu işaretlemeniz gerekiyor.");
+	    return false;
+	  }
+	  return false;
+	};
+
+	var welcome = {
+	  type:'external-html',
+	  url: "resources/welcome.html",
+	  cont_btn: "start",
+	  check_fn: check_consent,
+	};
+
+	var instructions = {
+	    type: 'instructions',
+	    pages: [ '<div style="margin: 50px auto; width: 800px; height: 250px; align: left" id="consent" align="left"> Birazdan size okuyup hakkında sorular cevaplandırmanız için çeşitli kısa metinler verilecektir. Metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.  <br/> <br/> İlk olarak her metin ile birlikte bir soru sorulacak ve yanıtlamanız istenecek. Daha sonra metin ekrandan kaldırılıp metindeki durumla ilgili bir soru daha yanıtlamanız istenecek. Üçünü olarak da basit bir aritmetik sorusu sorulacaktır.  <br/> <br/> Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.  <br/> <br/> Lütfen yönergeleri takip ederek testi tamamlayın.'
+	    ],
+	    show_clickable_nav: true 
+	};
+
+	var goodbye = {
+		on_start: function(){ saveData(fname, jsPsych.data.get().csv()); }, 
+	    type: 'instructions',
+	    pages: [ 'Katılımınız için teşekkürler. Bu araştırma hakkında daha fazla bilgi almak isterseniz sorularınızı e171627@metu.edu.tr adresine yöneltebilirsiniz. Lütfen araştırmacıya deneyi bitirdiğinizi söyleyiniz.'
+	    ],
+	    show_clickable_nav: true 
+	};
+
+
+
+
+	var trial_C01= {
+		type: 'survey-multi-choice',
+	  	id: 'C01',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça en sevdiği müzik grubunun konserine gitmek istiyor.<br/>Sevgilisinin ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını biliyor.<br/><br/><br/>Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_C02= {
+		type: 'survey-multi-choice',
+	  	id: 'C02',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.<br/>Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını biliyor.<br/><br/><br/>Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_C03= {
+		type: 'survey-multi-choice',
+	  	id: 'C03',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.<br/>Tatil planından önce ofise yeni bir iş gelmediğini biliyor.<br/><br/><br/>Aylık iş takvimi açıklandığında Berk nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_C04= {
+		type: 'survey-multi-choice',
+	  	id: 'C04',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.<br/>Ece Kuzey’in bir dersten kaldığını biliyor.<br/><br/><br/>Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_C05= {
+		type: 'survey-multi-choice',
+	  	id: 'C05',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Selin bu dönem matematikten geçmeyi çok istiyor.<br/>Finalden çıktığında soruların çoğunu doğru yaptığını biliyor.<br/><br/><br/>Notlar açıklandığında Selin nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_C06= {
+		type: 'survey-multi-choice',
+	  	id: 'C06',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Cenk hayallerindeki işe başvuruyor.<br/>Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini biliyor.<br/><br/><br/>Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F07= {
+		type: 'survey-multi-choice',
+	  	id: 'F07',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Çağrı bu hafta sonu kardanadam yapmak istiyor.<br/>Hava tahminine baktığında Cuma gecesi kar yağacağını görüyor.<br/><br/><br/>Cumartesi sabahı kar yağmadığını gördüğünde nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F08= {
+		type: 'survey-multi-choice',
+	  	id: 'F08',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Esra masa tenisi turnuvasının final maçında Göksu’nun tarafını tutuyor.<br/>Maç günü Göksu’nun bileğini incittiğini öğreniyor.<br/><br/><br/>Maçı Göksu kazandığında Esra nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F09= {
+		type: 'survey-multi-choice',
+	  	id: 'F09',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Mehmet öğle yemeklerini her gün yemekhanede yiyor.<br/>Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.<br/><br/><br/>Öğlen yemeğe gidip pırasa olmadığını görünce nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F10= {
+		type: 'survey-multi-choice',
+	  	id: 'F10',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Melike yüksek lisans için hedeflediği okula başvuruyor.<br/>Başvuruda istenen belgelerden birini eksik gönderdiğini fark ediyor.<br/><br/><br/>Okula yine de kabul edildiğini öğrenince nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F11= {
+		type: 'survey-multi-choice',
+	  	id: 'F11',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Oğuzhan mağazanın vitrininde gördüğü ayakkabıyı çok beğeniyor.<br/>Birkaç gün sonra ayakkabının indirime girdiğini duyuyor.<br/><br/><br/>Mağazaya gidip ayakkabının satıldığını öğrenince nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F12= {
+		type: 'survey-multi-choice',
+	  	id: 'F12',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Canan para biriktirmek için bir kumbara alıyor.<br/>Bir miktar para biriktirdikten sonra kumbarasını unutuyor.<br/><br/><br/>Aylar sonra kumbarayı bulduğunda nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F13= {
+		type: 'survey-multi-choice',
+	  	id: 'F13',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Elif Kars’a gitmek için tren bileti almak istiyor.<br/>Biletlerin salı günü satışa çıkacağını okuyor.<br/><br/><br/>Salı günü bütün biletlerin satıldığını öğrenince nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F14= {
+		type: 'survey-multi-choice',
+	  	id: 'F14',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Barış tatilde İstanbul’daki arkadaşlarını ziyaret etmek istiyor.<br/>Tatilin ikinci haftasında İstanbul’a gitmeyi planlıyor.<br/><br/><br/>Arkadaşlarından biri onu ziyarete geldiğinde Barış nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F15= {
+		type: 'survey-multi-choice',
+	  	id: 'F15',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Emre aldığı bir dersten kalmaktan korkuyor.<br/>Hocası sınıftan sadece altı kişinin geçeceğini söylüyor.<br/><br/><br/>Notlar açıklanıp kaldığını öğrendiğinde Emre nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F16= {
+		type: 'survey-multi-choice',
+	  	id: 'F16',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Zeynep ve Leman birbirlerini özledikleri için buluşmaya karar veriyorlar.<br/>Zeynep buluşacakları kafeye erkenden gidiyor.<br/><br/><br/>Leman geldiğinde Zeynep nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F17= {
+		type: 'survey-multi-choice',
+	  	id: 'F17',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Taylan kendisine akşam yemeği hazırlıyor.<br/>Tencereyi ocağa koyduktan sonra altını açmayı unutuyor.<br/><br/><br/>Yarım saat sonra yemeğin pişmediğini görünce Taylan nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F18= {
+		type: 'survey-multi-choice',
+	  	id: 'F18',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Aylin’in canı çilek yemek istiyor.<br/>Abisi pazara gitmek için evden çıkarken ona çilek almasını söylüyor.<br/><br/><br/>Abisi çilek alıp döndüğünde Aylin nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F19= {
+		type: 'survey-multi-choice',
+	  	id: 'F19',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Nurcan salı günleri fizik dersine gidiyor.<br/>Dersten çıkınca öğretmeninin ödev verdiğini unutuyor.<br/><br/><br/>Pazartesi gecesi ödevi olduğunu hatırladığında Nurcan nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F20= {
+		type: 'survey-multi-choice',
+	  	id: 'F20',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Funda yolda yürürken yerde bir piyango bileti buluyor.<br/>Eve gidip bilete ikramiye çıkıp çıkmadığını kontrol ediyor.<br/><br/><br/>Büyük ikramiye çıktığını öğrendiğinde Funda nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F21= {
+		type: 'survey-multi-choice',
+	  	id: 'F21',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Simay kamp ateşi için odun toplamaya ormana gidiyor.<br/>Yeterli miktarda topladığında geri dönmeye karar veriyor.<br/><br/><br/>Nereden geldiğini hatırlamadığını fark ettiğinde Simay nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F22= {
+		type: 'survey-multi-choice',
+	  	id: 'F22',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Volkan yoğun bir günün ardından eve dönüyor.<br/>Kapıya geldiğinde anahtarını bulamıyor.<br/><br/><br/>Biraz sonra ablasının eve geldiğini gördüğünde Volkan nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F23= {
+		type: 'survey-multi-choice',
+	  	id: 'F23',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Dilara çarpışan arabalara binmek istiyor.<br/>Babası Dilara’yı lunaparka götürüyor.<br/><br/><br/>Gidip lunaparkın kapalı olduğunu gördüklerinde Dilara nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_F24= {
+		type: 'survey-multi-choice',
+	  	id: 'F24',
+	    preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Cem Tokyo’ya gitmek için uçak bileti alıyor.<br/>Uçuş günü trafiğe yakalanıp havaalanına geç gidiyor.<br/><br/><br/>Uçuşu rötar yaptığı için yetiştiğini görünce Cem nasıl hisseder?</div>',
+        questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
+  };
+  
+	var trial_Q01= {
+      type: 'survey-multi-choice',
+	  id: 'Q01',
+	  correct: 'Sevgilisi',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Ayça’ya kim sürpriz yapmak istemektedir?</div>',
+      questions: [{prompt: '', options: ['Arkadaşları', 'Ailesi', 'Sevgilisi'], required: true}],
+  };
+  
+	var trial_Q02= {
+      type: 'survey-multi-choice',
+	  id: 'Q02',
+	  correct: 'Oyuncak Bebek',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Ailesi Burcu’ya genelde ne hediye almaktadır?</div>',
+      questions: [{prompt: '', options: ['Oyuncak Bebek', 'Ayakkabı', 'Oyuncak Araba'], required: true}],
+  };
+  
+	var trial_Q03= {
+      type: 'survey-multi-choice',
+	  id: 'Q03',
+	  correct: 'Ofis',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Berk nerede çalışmaktadır?</div>',
+      questions: [{prompt: '', options: ['Mağaza', 'Fabrika', 'Ofis'], required: true}],
+  };
+  
+	var trial_Q04= {
+      type: 'survey-multi-choice',
+	  id: 'Q04',
+	  correct: 'Kamp',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Ece ve kuzey nereye gitmek istemektedir?</div>',
+      questions: [{prompt: '', options: ['Konferans', 'Tatil Köyü', 'Kamp'], required: true}],
+  };
+  
+	var trial_Q05= {
+      type: 'survey-multi-choice',
+	  id: 'Q05',
+	  correct: 'Matematik',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Selin’in geçmekte sıkıntı yaşadığı ders hangisidir?</div>',
+      questions: [{prompt: '', options: ['Fizik', 'Matematik', 'Edebiyat'], required: true}],
+  };
+  
+	var trial_Q06= {
+      type: 'survey-multi-choice',
+	  id: 'Q06',
+	  correct: 'Müdür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Cenk’in girdiği mülakatı gerçekleştiren hangisidir?</div>',
+      questions: [{prompt: '', options: ['Patron', 'CEO', 'Müdür'], required: true}],
+  };
+  
+	var trial_Q07= {
+      type: 'survey-multi-choice',
+	  id: 'Q07',
+	  correct: 'Kardanadam',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Çağrı kar yağınca hangisini yapmak istemektedir?</div>',
+      questions: [{prompt: '', options: ['Kartopu savaşı', 'Kayak', 'Kardanadam'], required: true}],
+  };
+  
+	var trial_Q08= {
+      type: 'survey-multi-choice',
+	  id: 'Q08',
+	  correct: 'Masa Tenisi',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?</div>',
+      questions: [{prompt: '', options: ['Masa Tenisi', 'Sırıkla Atlama', 'Basketbol'], required: true}],
+  };
+  
+	var trial_Q09= {
+      type: 'survey-multi-choice',
+	  id: 'Q09',
+	  correct: 'Yemekhane',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Mehmet’in öğle yemeklerini yediği yer hangisidir?</div>',
+      questions: [{prompt: '', options: ['Yemekhane', 'Kantin', 'Restoran'], required: true}],
+  };
+  
+	var trial_Q10= {
+      type: 'survey-multi-choice',
+	  id: 'Q10',
+	  correct: 'Yüksek Lisans',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Melike hangi eğitim seviyesi için başvuru yapmıştır?</div>',
+      questions: [{prompt: '', options: ['Lisans', 'Önlisans', 'Yüksek Lisans'], required: true}],
+  };
+  
+	var trial_Q11= {
+      type: 'survey-multi-choice',
+	  id: 'Q11',
+	  correct: 'Ayakkabı',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Oğuzhan’ın vitrinde beğendiği şey hangisidir?</div>',
+      questions: [{prompt: '', options: ['Pantolon', 'Ayakkabı', 'Ceket'], required: true}],
+  };
+  
+	var trial_Q12= {
+      type: 'survey-multi-choice',
+	  id: 'Q12',
+	  correct: 'Para Biriktirmek',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Canan hangisini yapmak istemektedir?</div>',
+      questions: [{prompt: '', options: ['Kumbara Biriktirmek', 'Para Biriktirmek', 'Para Kazanmak'], required: true}],
+  };
+  
+	var trial_Q13= {
+      type: 'survey-multi-choice',
+	  id: 'Q13',
+	  correct: 'Kars',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Elif nereye gitmek istemektedir?</div>',
+      questions: [{prompt: '', options: ['Kars', 'Ardahan', 'Batum'], required: true}],
+  };
+  
+	var trial_Q14= {
+      type: 'survey-multi-choice',
+	  id: 'Q14',
+	  correct: 'Birinci',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Barış tatilin kaçıncı haftasında İstanbul’a gitmeyi planlamıştır?</div>',
+      questions: [{prompt: '', options: ['İkinci', 'Üçüncü', 'Birinci'], required: true}],
+  };
+  
+	var trial_Q15= {
+      type: 'survey-multi-choice',
+	  id: 'Q15',
+	  correct: 'Altı',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Dersi kaç kişinin geçeceği söylenmiştir?</div>',
+      questions: [{prompt: '', options: ['Altı', 'Üç', 'Dokuz'], required: true}],
+  };
+  
+	var trial_Q16= {
+      type: 'survey-multi-choice',
+	  id: 'Q16',
+	  correct: 'Kafe',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Zeynep ve Leman nerede buluşacaklardır?</div>',
+      questions: [{prompt: '', options: ['Park', 'Restoran', 'Kafe'], required: true}],
+  };
+  
+	var trial_Q17= {
+      type: 'survey-multi-choice',
+	  id: 'Q17',
+	  correct: 'Öğle Yemeği',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Taylan hangi öğününü hazırlamaktadır?</div>',
+      questions: [{prompt: '', options: ['Öğle Yemeği', 'Akşam Yemeği', 'Kahvaltı'], required: true}],
+  };
+  
+	var trial_Q18= {
+      type: 'survey-multi-choice',
+	  id: 'Q18',
+	  correct: 'Çilek',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Aylin hangi meyveyi yemek istemektedir?</div>',
+      questions: [{prompt: '', options: ['Armut', 'Muz', 'Çilek'], required: true}],
+  };
+  
+	var trial_Q19= {
+      type: 'survey-multi-choice',
+	  id: 'Q19',
+	  correct: 'Salı',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Nurcan’ın dersi hangi gündür?</div>',
+      questions: [{prompt: '', options: ['Cuma', 'Salı', 'Çarşamba'], required: true}],
+  };
+  
+	var trial_Q20= {
+      type: 'survey-multi-choice',
+	  id: 'Q20',
+	  correct: 'Piyango Bileti',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Funda yerde ne bulmuştur?</div>',
+      questions: [{prompt: '', options: ['Cüzdan', 'Para', 'Piyango Bileti'], required: true}],
+  };
+  
+	var trial_Q21= {
+      type: 'survey-multi-choice',
+	  id: 'Q21',
+	  correct: 'Odun',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Simay ormanda ne toplamaktadır?</div>',
+      questions: [{prompt: '', options: ['Odun', 'Çöp', 'Kozalak'], required: true}],
+  };
+  
+	var trial_Q22= {
+      type: 'survey-multi-choice',
+	  id: 'Q22',
+	  correct: 'Yoğun',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Volkan nasıl bir gün geçirmiştir?</div>',
+      questions: [{prompt: '', options: ['Rahat', 'Sıkıcı', 'Yoğun'], required: true}],
+  };
+  
+	var trial_Q23= {
+      type: 'survey-multi-choice',
+	  id: 'Q23',
+	  correct: 'Çarpışan Arabalar',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Dilara lunaparka ne için gitmek istemektedir?</div>',
+      questions: [{prompt: '', options: ['Çarpışan Arabalar', 'Güldüren Aynalar', 'Gondol'], required: true}],
+  };
+  
+	var trial_Q24= {
+      type: 'survey-multi-choice',
+	  id: 'Q24',
+	  correct: 'Tokyo',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Cem nereye gitmektedir?</div>',
+      questions: [{prompt: '', options: ['New York', 'Londra', 'Tokyo'], required: true}],
+  };
+  
+	var trial_A01= {
+      type: 'survey-multi-choice',
+	  id: 'A01',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>81x55 işleminin sonucu 4500\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A02= {
+      type: 'survey-multi-choice',
+	  id: 'A02',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>76x46 işleminin sonucu 3500\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A03= {
+      type: 'survey-multi-choice',
+	  id: 'A03',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>57x26 işleminin sonucu 1500\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A04= {
+      type: 'survey-multi-choice',
+	  id: 'A04',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>96x75 işleminin sonucu 7000\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A05= {
+      type: 'survey-multi-choice',
+	  id: 'A05',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>30x66 işleminin sonucu 2000\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A06= {
+      type: 'survey-multi-choice',
+	  id: 'A06',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>79x85 işleminin sonucu 6500\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A07= {
+      type: 'survey-multi-choice',
+	  id: 'A07',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>84x53 işleminin sonucu 4500\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A08= {
+      type: 'survey-multi-choice',
+	  id: 'A08',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>28x35 işleminin sonucu 1000\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A09= {
+      type: 'survey-multi-choice',
+	  id: 'A09',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>49x17 işleminin sonucu 850\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A10= {
+      type: 'survey-multi-choice',
+	  id: 'A10',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>23x69 işleminin sonucu 1500\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A11= {
+      type: 'survey-multi-choice',
+	  id: 'A11',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>37x93 işleminin sonucu 3400\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A12= {
+      type: 'survey-multi-choice',
+	  id: 'A12',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>81x32 işleminin sonucu 2500\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A13= {
+      type: 'survey-multi-choice',
+	  id: 'A13',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>22x61 işleminin sonucu 1350\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A14= {
+      type: 'survey-multi-choice',
+	  id: 'A14',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>47x39 işleminin sonucu 1800\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A15= {
+      type: 'survey-multi-choice',
+	  id: 'A15',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>26X81 işleminin sonucu 2100\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A16= {
+      type: 'survey-multi-choice',
+	  id: 'A16',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>91x21 işleminin sonucu 1950\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A17= {
+      type: 'survey-multi-choice',
+	  id: 'A17',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>43x22 işleminin sonucu 950\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A18= {
+      type: 'survey-multi-choice',
+	  id: 'A18',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>16x94 işleminin sonucu 1500\'den</div>',
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+  };
+  
+	var trial_A19= {
+      type: 'survey-multi-choice',
+	  id: 'A19',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>99x19 işleminin sonucu 1850\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A20= {
+      type: 'survey-multi-choice',
+	  id: 'A20',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>25x73 işleminin sonucu 1850\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A21= {
+      type: 'survey-multi-choice',
+	  id: 'A21',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>87x36 işleminin sonucu 3100\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A22= {
+      type: 'survey-multi-choice',
+	  id: 'A22',
+	  correct: 'küçüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>77x18 işleminin sonucu 1400\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A23= {
+      type: 'survey-multi-choice',
+	  id: 'A23',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>54x61 işleminin sonucu 3250\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var trial_A24= {
+      type: 'survey-multi-choice',
+	  id: 'A24',
+	  correct: 'büyüktür',
+	  preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>45x76 işleminin sonucu 3400\'den</div>',
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+  };
+  
+	var timeline = [welcome,instructions];
+
+	var filler_profile = [3,2,3,3,2,2,3];
+
+	var filler_repo = jsPsych.randomization.shuffle([[trial_F07,trial_Q07],[trial_F08,trial_Q08],[trial_F09,trial_Q09],[trial_F10,trial_Q10],[trial_F11,trial_Q11],[trial_F12,trial_Q12],[trial_F13,trial_Q13],[trial_F14,trial_Q14],[trial_F15,trial_Q15],[trial_F16,trial_Q16],[trial_F17,trial_Q17],[trial_F18,trial_Q18],[trial_F19,trial_Q19],[trial_F20,trial_Q20],[trial_F21,trial_Q21],[trial_F22,trial_Q22],[trial_F23,trial_Q23],[trial_F24,trial_Q24],]); 
+
+	var critical_repo = jsPsych.randomization.shuffle([[trial_C01,trial_Q01],[trial_C02,trial_Q02],[trial_C03,trial_Q03],[trial_C04,trial_Q04],[trial_C05,trial_Q05],[trial_C06,trial_Q06],]);
+
+	var arith_repo = jsPsych.randomization.shuffle([trial_A01,trial_A02,trial_A03,trial_A04,trial_A05,trial_A06,trial_A07,trial_A08,trial_A09,trial_A10,trial_A11,trial_A12,trial_A13,trial_A14,trial_A15,trial_A16,trial_A17,trial_A18,trial_A19,trial_A20,trial_A21,trial_A22,trial_A23,trial_A24,]);
+
+	var filler_clock = 0;
+	var critical_clock = 0;
+	var arith_clock = 0;
+
+	for (var i = 0; i < filler_profile.length - 1; i++){
+		var k = filler_profile[i];
+		for (var j = 0; j < k; j++){
+			timeline = timeline.concat(filler_repo[filler_clock]);
+			timeline.push(arith_repo[arith_clock])
+			arith_clock++;
+			filler_clock++;
+		}
+		timeline = timeline.concat(critical_repo[critical_clock]);
+		timeline.push(arith_repo[arith_clock]);
+		arith_clock++;
+		critical_clock++;
+	}
+
+	for (var i = 0; i < filler_profile[-1]; i++){
+		timeline = timeline.concat(filler_repo[filler_clock]);
+		timeline.push(arith_repo[arith_clock])
+		arith_clock++;
+		filler_clock++;
+    }
+
+	timeline.push(goodbye);
+
+
+  
+  jsPsych.init({
+    timeline: timeline, 
+	on_finish: function() {saveData(fname, jsPsych.data.get().csv());},
+    default_iti: 250
+  });
+	</script>
+</html>

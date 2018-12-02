@@ -1,0 +1,8 @@
+
+  jsPsych.init({
+    timeline: timeline, 
+	on_finish: function() {saveData(fname, jsPsych.data.get().csv());},
+    default_iti: 250
+  });
+	</script>
+</html>
