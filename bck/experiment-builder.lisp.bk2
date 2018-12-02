@@ -118,12 +118,6 @@
   };
   ")))
 
-(defun declare-group (group)
-  (concatenate 'string
-			   "
-	// set the group 
-	var group_id = \"" (string-downcase (string group)) "\";"))
-
 
 (defun build-timeline ()
 	(format nil "[~{trial_~a,~}]" (let ((store))

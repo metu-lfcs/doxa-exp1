@@ -14,10 +14,6 @@
 	<body></body>
 	<script>
 
-	//to be able to run the experiment builder
-	//var cp = require('child_process')
-	//var spawn = cp.spawn;
-
 	var subject_id = jsPsych.randomization.randomID(5);
 
 	var subject_email = "not_defined"
@@ -35,9 +31,16 @@
 	  group: group_id
 	});
 
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
 	var timeline = [];
 
-	var filler_profile = [3,2,3,3,2,2,3];
+		var filler_profile = [3,2,3,3,2,2,3];
 
 	var filler_repo = jsPsych.randomization.shuffle(['f1','f2','f3','f4','f5','f6']); 
 
@@ -72,12 +75,6 @@
 	  return false;
 	};
 
-	function saveData(name, data){
-	  var xhr = new XMLHttpRequest();
-	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-	  xhr.setRequestHeader('Content-Type', 'application/json');
-	  xhr.send(JSON.stringify({filename: name, filedata: data}));
-	}
 
 	var welcome = {
 	  type:'external-html',
