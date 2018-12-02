@@ -1,76 +1,76 @@
-Item,Sentence1,Sentence2,Question,Expected Answer
-C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Sevgilisinin ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür
-C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir
-C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatil planından önce ofise yeni bir iş gelmediğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür
-C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir
-C05,Selin bu dönem matematikten geçmeyi çok istiyor.,Finalden çıktığında soruların çoğunu doğru yaptığını $yor.,Notlar açıklandığında Selin nasıl hisseder?,Üzülür
-C06,Cenk hayallerindeki işe başvuruyor.,Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini $yor.,Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?,Sevinir
-F07,Çağrı bu hafta sonu kardanadam yapmak istiyor.,Hava tahminine baktığında Cuma gecesi kar yağacağını görüyor.,Cumartesi sabahı kar yağmadığını gördüğünde nasıl hisseder?,Üzülür
-F08,Esra masa tenisi turnuvasının final maçında Göksu’nun tarafını tutuyor.,Maç günü Göksu’nun bileğini incittiğini öğreniyor.,Maçı Göksu kazandığında Esra nasıl hisseder?,Sevinir
-F09,Mehmet öğle yemeklerini her gün yemekhanede yiyor.,Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.,Öğlen yemeğe gidip pırasa olmadığını görünce nasıl hisseder?,Üzülür
-F10,Melike yüksek lisans için hedeflediği okula başvuruyor.,Başvuruda istenen belgelerden birini eksik gönderdiğini fark ediyor.,Okula yine de kabul edildiğini öğrenince nasıl hisseder?,Sevinir
-F11,Oğuzhan mağazanın vitrininde gördüğü ayakkabıyı çok beğeniyor.,Birkaç gün sonra ayakkabının indirime girdiğini duyuyor.,Mağazaya gidip ayakkabının satıldığını öğrenince nasıl hisseder?,Üzülür
-F12,Canan para biriktirmek için bir kumbara alıyor.,Bir miktar para biriktirdikten sonra kumbarasını unutuyor.,Aylar sonra kumbarayı bulduğunda nasıl hisseder?,Sevinir
-F13,Elif Kars’a gitmek için tren bileti almak istiyor.,Biletlerin salı günü satışa çıkacağını okuyor.,Salı günü bütün biletlerin satıldığını öğrenince nasıl hisseder?,Üzülür
-F14,Barış tatilde İstanbul’daki arkadaşlarını ziyaret etmek istiyor.,Tatilin ikinci haftasında İstanbul’a gitmeyi planlıyor.,Arkadaşlarından biri onu ziyarete geldiğinde Barış nasıl hisseder?,Sevinir
-F15,Emre aldığı bir dersten kalmaktan korkuyor.,Hocası sınıftan sadece altı kişinin geçeceğini söylüyor.,Notlar açıklanıp kaldığını öğrendiğinde Emre nasıl hisseder?,Üzülür
-F16,Zeynep ve Leman birbirlerini özledikleri için buluşmaya karar veriyorlar.,Zeynep buluşacakları kafeye erkenden gidiyor.,Leman geldiğinde Zeynep nasıl hisseder?,Sevinir
-F17,Taylan kendisine akşam yemeği hazırlıyor.,Tencereyi ocağa koyduktan sonra altını açmayı unutuyor.,Yarım saat sonra yemeğin pişmediğini görünce Taylan nasıl hisseder?,Üzülür
-F18,Aylin’in canı çilek yemek istiyor.,Abisi pazara gitmek için evden çıkarken ona çilek almasını söylüyor.,Abisi çilek alıp döndüğünde Aylin nasıl hisseder?,Sevinir
-F19,Nurcan salı günleri fizik dersine gidiyor.,Dersten çıkınca öğretmeninin ödev verdiğini unutuyor.,Pazartesi gecesi ödevi olduğunu hatırladığında Nurcan nasıl hisseder?,Üzülür
-F20,Funda yolda yürürken yerde bir piyango bileti buluyor.,Eve gidip bilete ikramiye çıkıp çıkmadığını kontrol ediyor.,Büyük ikramiye çıktığını öğrendiğinde Funda nasıl hisseder?,Sevinir
-F21,Simay kamp ateşi için odun toplamaya ormana gidiyor.,Yeterli miktarda topladığında geri dönmeye karar veriyor.,Nereden geldiğini hatırlamadığını fark ettiğinde Simay nasıl hisseder?,Üzülür
-F22,Volkan yoğun bir günün ardından eve dönüyor.,Kapıya geldiğinde anahtarını bulamıyor.,Biraz sonra ablasının eve geldiğini gördüğünde Volkan nasıl hisseder?,Sevinir
-F23,Dilara çarpışan arabalara binmek istiyor.,Babası Dilara’yı lunaparka götürüyor.,Gidip lunaparkın kapalı olduğunu gördüklerinde Dilara nasıl hisseder?,Üzülür
-F24,Cem Tokyo’ya gitmek için uçak bileti alıyor.,Uçuş günü trafiğe yakalanıp havaalanına geç gidiyor.,Uçuşu rötar yaptığı için yetiştiğini görünce Cem nasıl hisseder?,Sevinir
-,,,,
-,Comprehension Question ,Correct Answer,Incorrect Answer,Incorrect Answer
-Q01,Ayça’ya kim sürpriz yapmak istemektedir?,Sevgilisi,Ailesi,Arkadaşları
-Q02,Ailesi Burcu’ya genelde ne hediye almaktadır?,Oyuncak Bebek,Oyuncak Araba,Ayakkabı
-Q03,Berk nerede çalışmaktadır?,Ofis,Fabrika,Mağaza
-Q04,Ece ve kuzey nereye gitmek istemektedir?,Kamp,Konferans,Tatil Köyü
-Q05,Selin’in geçmekte sıkıntı yaşadığı ders hangisidir?,Matematik,Fizik,Edebiyat
-Q06,Cenk’in girdiği mülakatı gerçekleştiren hangisidir?,Müdür,Patron,CEO
-Q07,Çağrı kar yağınca hangisini yapmak istemektedir?,Kardanadam,Kartopu savaşı,Kayak
-Q08,Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?,Masa Tenisi,Sırıkla Atlama,Basketbol
-Q09,Mehmet’in öğle yemeklerini yediği yer hangisidir?,Yemekhane,Restoran,Kantin
-Q10,Melike hangi eğitim seviyesi için başvuru yapmıştır?,Yüksek Lisans,Lisans,Önlisans
-Q11,Oğuzhan’ın vitrinde beğendiği şey hangisidir?,Ayakkabı,Ceket,Pantolon
-Q12,Canan hangisini yapmak istemektedir?,Para Biriktirmek,Kumbara Biriktirmek,Para Kazanmak
-Q13,Elif nereye gitmek istemektedir?,Kars,Ardahan,Batum
-Q14,Barış tatilin kaçıncı haftasında İstanbul’a gitmeyi planlamıştır?,Birinci,İkinci,Üçüncü
-Q15,Dersi kaç kişinin geçeceği söylenmiştir?,Altı,Dokuz,Üç
-Q16,Zeynep ve Leman nerede buluşacaklardır?,Kafe,Park,Restoran
-Q17,Taylan hangi öğününü hazırlamaktadır?,Öğle Yemeği,Akşam Yemeği,Kahvaltı
-Q18,Aylin hangi meyveyi yemek istemektedir?,Çilek,Muz,Armut
-Q19,Nurcan’ın dersi hangi gündür?,Salı,Çarşamba,Cuma
-Q20,Funda yerde ne bulmuştur?,Piyango Bileti,Cüzdan,Para
-Q21,Simay ormanda ne toplamaktadır?,Odun,Çöp,Kozalak
-Q22,Volkan nasıl bir gün geçirmiştir?,Yoğun,Sıkıcı,Rahat
-Q23,Dilara lunaparka ne için gitmek istemektedir?,Çarpışan Arabalar,Gondol,Güldüren Aynalar
-Q24,Cem nereye gitmektedir?,Tokyo,Londra,New York
-Item,Question:,,,,Correct,Incorrect
-A01,81x55,işleminin sonucu,4500,den,küçüktür,büyüktür
-A02,76x46,işleminin sonucu,3500,den,küçüktür,büyüktür
-A03,57x26,işleminin sonucu,1500,den,küçüktür,büyüktür
-A04,96x75,işleminin sonucu,7000,den,büyüktür,küçüktür
-A05,30x66,işleminin sonucu,2000,den,küçüktür,büyüktür
-A06,79x85,işleminin sonucu,6500,den,büyüktür,küçüktür
-A07,84x53,işleminin sonucu,4500,den,küçüktür,büyüktür
-A08,28x35,işleminin sonucu,1000,den,küçüktür,büyüktür
-A09,49x17,işleminin sonucu,850,den,küçüktür,büyüktür
-A10,23x69,işleminin sonucu,1500,den,büyüktür,küçüktür
-A11,37x93,işleminin sonucu,3400,den,büyüktür,küçüktür
-A12,81x32,işleminin sonucu,2500,den,büyüktür,küçüktür
-A13,22x61,işleminin sonucu,1350,den,küçüktür,büyüktür
-A14,47x39,işleminin sonucu,1800,den,büyüktür,küçüktür
-A15,26X81,işleminin sonucu,2100,den,büyüktür,küçüktür
-A16,91x21,işleminin sonucu,1950,den,küçüktür,büyüktür
-A17,43x22,işleminin sonucu,950,den,küçüktür,büyüktür
-A18,16x94,işleminin sonucu,1500,den,büyüktür,küçüktür
-A19,99x19,işleminin sonucu,1850,den,büyüktür,küçüktür
-A20,25x73,işleminin sonucu,1850,den,küçüktür,büyüktür
-A21,87x36,işleminin sonucu,3100,den,büyüktür,küçüktür
-A22,77x18,işleminin sonucu,1400,den,küçüktür,büyüktür
-A23,54x61,işleminin sonucu,3250,den,büyüktür,küçüktür
-A24,45x76,işleminin sonucu,3400,den,büyüktür,küçüktür
+Item,Sentence1,Sentence2,Question,Expected Answer,
+C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Sevgilisinin sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,
+C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir,
+C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatil planından önce ofise yeni bir iş gelmediğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,
+C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir,
+C05,Selin bu dönem matematikten geçmeyi çok istiyor.,Finalden çıktığında soruların çoğunu doğru yaptığını $yor.,Notlar açıklandığında Selin nasıl hisseder?,Üzülür,
+C06,Cenk hayallerindeki işe başvuruyor.,Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini $yor.,Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?,Sevinir,
+F07,Çağrı bu hafta sonu kardan adam yapmak istiyor.,Hava tahminine baktığında Cuma gecesi kar yağacağını görüyor.,Cumartesi sabahı kar yağmadığını gördüğünde nasıl hisseder?,Üzülür,
+F08,Esra masa tenisi maçında Göksu’nun tarafını tutuyor.,Maç günü Göksu’nun bileğini incittiğini öğreniyor.,Maç sonucunda Esra nasıl hisseder?,Bilmiyorum,s
+F09,Mehmet öğle yemeklerini her gün yemekhanede yiyor.,Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.,Öğlen yemeğe gittiğinde Mehmet nasıl hisseder?,Bilmiyorum,ü
+F10,Melike yüksek lisans için hedeflediği okula başvuruyor.,Başvuruda istenen belgelerden birini eksik gönderdiğini fark ediyor.,Okula yine de kabul edildiğini öğrenince nasıl hisseder?,Sevinir,
+F11,Oğuzhan mağazanın vitrininde gördüğü ayakkabıyı çok beğeniyor.,Birkaç gün sonra ayakkabının indirime girdiğini duyuyor.,Mağazaya gidip ayakkabının satıldığını öğrenince nasıl hisseder?,Üzülür,
+F12,Canan para biriktirmek için bir kumbara alıyor.,Bir miktar para biriktirdikten sonra kumbarası olduğunu unutuyor.,Aylar sonra kumbarası tekrar aklına geldiğinde nasıl hisseder?,Bilmiyorum,s
+F13,Elif Kars’a gitmek için tren bileti almak istiyor.,Biletlerin salı günü satışa çıkacağını okuyor.,Salı akşamı bilet almaya gittiğinde Elif nasıl hisseder?,Bilmiyorum,ü
+F14,Barış tatilde İstanbul’daki arkadaşlarını ziyaret etmek istiyor.,Tatilin ikinci haftasında İstanbul’a gitmeyi planlıyor.,Tatilin ilk haftası Barış nasıl hisseder?,Bilmiyorum,s
+F15,Emre aldığı bir dersten kalmaktan korkuyor.,Hocası sınıftan sadece altı kişinin geçtiğini söylüyor.,Notlar açıklandığında Emre nasıl hisseder?,Bilmiyorum,ü
+F16,Zeynep ve Leman birbirlerini özledikleri için buluşmaya karar veriyorlar.,Zeynep buluşacakları kafeye erkenden gidiyor.,Leman geldiğinde Zeynep nasıl hisseder?,Sevinir,
+F17,Taylan kendisine akşam yemeği hazırlıyor.,Tencereyi ocağa koyduktan sonra içeri gidip televizyon izliyor.,Bir saat sonra mutfağa döndüğünde Taylan nasıl hisseder?,Bilmiyorum,ü
+F18,Aylin’in canı çilek yemek istiyor.,Abisi pazara gitmek için evden çıkarken ona çilek almasını söylüyor.,Abisi çilek alıp döndüğünde Aylin nasıl hisseder?,Sevinir,
+F19,Nurcan her hafta fizik dersine gidiyor.,Dersten çıkınca öğretmeninin ödev verdiğini unutuyor.,Ödevi olduğunu hatırladığında Nurcan nasıl hisseder?,Üzülür,
+F20,Funda yolda yürürken yerde bir piyango bileti buluyor.,Eve gidip bilete ikramiye çıkıp çıkmadığını kontrol ediyor.,Çekiliş sonuçlarını öğrendiğinde Funda nasıl hisseder?,Bilmiyorum,s
+F21,Simay kamp ateşi için odun toplamaya ormana gidiyor.,Yeterli miktarda topladığında geri dönmeye karar veriyor.,Kaybolduğunu fark ettiğinde Simay nasıl hisseder?,Üzülür,
+F22,Volkan yoğun bir günün ardından eve dönüyor.,Kapıya geldiğinde anahtarını bulamıyor.,Biraz sonra ablasının eve geldiğini gördüğünde Volkan nasıl hisseder?,Sevinir,
+F23,Dilara çarpışan arabalara binmek istiyor.,Babası Dilara’yı lunaparka götürüyor.,Gidip lunaparkın kapalı olduğunu gördüklerinde Dilara nasıl hisseder?,Üzülür,
+F24,Cem Tokyo’ya gitmek için uçak bileti alıyor.,Uçuş günü trafiğe yakalanıp havaalanına geç gidiyor.,Uçuşu rötar yaptığı için yetiştiğini görünce Cem nasıl hisseder?,Sevinir,
+,,,,,
+,Comprehension Question ,Correct Answer,Incorrect Answer,Incorrect Answer,
+Q01,Ayça’ya kim sürpriz yapmak istemektedir?,Sevgilisi,Ailesi,Arkadaşları,
+Q02,Ailesi Burcu’ya genelde ne hediye almaktadır?,Oyuncak bebek,Oyuncak araba,Ayakkabı,
+Q03,Berk nerede çalışmaktadır?,Ofis,Fabrika,Mağaza,
+Q04,Ece ve kuzey nereye gitmek istemektedir?,Kamp,Konferans,Tatil köyü,
+Q05,Selin’in geçmekte sıkıntı yaşadığı ders hangisidir?,Matematik,Fizik,Edebiyat,
+Q06,Cenk’in girdiği mülakatı gerçekleştiren hangisidir?,Müdür,Patron,CEO,
+Q07,Çağrı kar yağınca hangisini yapmak istemektedir?,Kardan adam,Kartopu savaşı,Kayak,
+Q08,Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?,Masa tenisi,Sırıkla atlama,Basketbol,
+Q09,Mehmet’in öğle yemeklerini yediği yer hangisidir?,Yemekhane,Restoran,Kantin,
+Q10,Melike hangi eğitim seviyesi için başvuru yapmıştır?,Yüksek lisans,Lisans,Önlisans,
+Q11,Oğuzhan’ın vitrinde beğendiği şey hangisidir?,Ayakkabı,Ceket,Pantolon,
+Q12,Canan hangisini yapmak istemektedir?,Para biriktirmek,Kumbara biriktirmek,Para kazanmak,
+Q13,Elif nereye gitmek istemektedir?,Kars,Ardahan,Batum,
+Q14,Barış tatilin kaçıncı haftasında İstanbul’a gitmeyi planlamıştır?,Birinci,İkinci,Üçüncü,
+Q15,Dersi kaç kişinin geçeceği söylenmiştir?,Altı,Dokuz,Üç,
+Q16,Zeynep ve Leman nerede buluşacaklardır?,Kafe,Park,Restoran,
+Q17,Taylan hangi öğününü hazırlamaktadır?,Öğle yemeği,Akşam yemeği,Kahvaltı,
+Q18,Aylin hangi meyveyi yemek istemektedir?,Çilek,Muz,Armut,
+Q19,Nurcan’ın dersi hangi gündür?,Salı,Çarşamba,Cuma,
+Q20,Funda yerde ne bulmuştur?,Piyango bileti,Cüzdan,Para,
+Q21,Simay ormanda ne toplamaktadır?,Odun,Çöp,Kozalak,
+Q22,Volkan nasıl bir gün geçirmiştir?,Yoğun,Sıkıcı,Rahat,
+Q23,Dilara lunaparka ne için gitmek istemektedir?,Çarpışan arabalar,Gondol,Güldüren aynalar,
+Q24,Cem nereye gitmektedir?,Tokyo,Londra,New York,
+Item,Question:,,,,Correct,Incorrect,Exact
+A01,81x55,işleminin sonucu,4500,den,küçüktür,büyüktür,4455
+A02,76x46,işleminin sonucu,3550,den,küçüktür,büyüktür,3496
+A03,57x26,işleminin sonucu,1600,den,küçüktür,büyüktür,1482
+A04,96x75,işleminin sonucu,7100,den,büyüktür,küçüktür,7200
+A05,30x66,işleminin sonucu,2050,den,küçüktür,büyüktür,1980
+A06,79x85,işleminin sonucu,6600,den,büyüktür,küçüktür,6715
+A07,84x53,işleminin sonucu,4550,den,küçüktür,büyüktür,4452
+A08,28x35,işleminin sonucu,1050,den,küçüktür,büyüktür,980
+A09,49x17,işleminin sonucu,900,den,küçüktür,büyüktür,833
+A10,23x69,işleminin sonucu,1500,den,büyüktür,küçüktür,1587
+A11,37x93,işleminin sonucu,3350,den,büyüktür,küçüktür,3441
+A12,81x32,işleminin sonucu,2500,den,büyüktür,küçüktür,2592
+A13,22x61,işleminin sonucu,1400,den,küçüktür,büyüktür,1342
+A14,47x39,işleminin sonucu,1750,den,büyüktür,küçüktür,1833
+A15,26X81,işleminin sonucu,2000,den,büyüktür,küçüktür,2106
+A16,91x21,işleminin sonucu,2000,den,küçüktür,büyüktür,1911
+A17,43x22,işleminin sonucu,980,den,küçüktür,büyüktür,946
+A18,16x94,işleminin sonucu,1500,den,büyüktür,küçüktür,1504
+A19,99x19,işleminin sonucu,1850,den,büyüktür,küçüktür,1881
+A20,25x73,işleminin sonucu,1900,den,küçüktür,büyüktür,1825
+A21,87x36,işleminin sonucu,3050,den,büyüktür,küçüktür,3132
+A22,77x18,işleminin sonucu,1450,den,küçüktür,büyüktür,1386
+A23,54x61,işleminin sonucu,3200,den,büyüktür,küçüktür,3294
+A24,45x76,işleminin sonucu,3350,den,büyüktür,küçüktür,3420
