@@ -7,14 +7,8 @@
 
 	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
 	
-	var fname = "doxa".concat(subject_id, "-", group_id, ".html");
+	var fname = "doxa".concat("-", group_id, "-", subject_id);
 
-	jsPsych.data.addProperties({
-	  subject: subject_id,
-	  subject_email: subject_email,
-	  subject_name: subject_email,
-	  group: group_id
-	});
 
 	function saveData(name, data){
 	  var xhr = new XMLHttpRequest();
@@ -22,4 +16,5 @@
 	  xhr.setRequestHeader('Content-Type', 'application/json');
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
 	}
+
 

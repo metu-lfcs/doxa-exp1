@@ -66,13 +66,13 @@ jsPsych.plugins.instructions = (function() {
       button_label_previous: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label previous',
-        default: 'Previous',
+        default: 'Önceki',
         description: 'The text that appears on the button to go backwards.'
       },
       button_label_next: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label next',
-        default: 'Next',
+        default: 'Sonraki',
         description: 'The text that appears on the button to go forwards.'
       }
     }

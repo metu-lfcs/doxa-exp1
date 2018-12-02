@@ -1,8 +1,12 @@
+<div style="margin: 50px auto; width: 800px; height: 250px; align: left" id="consent" align="left">
 Birazdan size okuyup hakkında sorular cevaplandırmanız için çeşitli kısa metinler verilecektir. Metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.
-
+<br/>
+<br/>
 İlk olarak her metin ile birlikte bir soru sorulacak ve yanıtlamanız istenecek. Daha sonra metin ekrandan kaldırılıp metindeki durumla ilgili bir soru daha yanıtlamanız istenecek. Üçünü olarak da basit bir aritmetik sorusu sorulacaktır.
-
+<br/>
+<br/>
 Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.
-
+<br/>
+<br/>
 Lütfen yönergeleri takip ederek testi tamamlayın.
 

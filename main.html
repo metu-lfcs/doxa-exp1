@@ -38,29 +38,33 @@
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
 	}
 
-	var timeline = [];
+	var timeline = [welcome];
 
-		var filler_profile = [3,2,3,3,2,2,3];
+	var filler_profile = [3,2,3,3,2,2,3];
 
 	var filler_repo = jsPsych.randomization.shuffle(['f1','f2','f3','f4','f5','f6']); 
 
 	var critical_repo = jsPsych.randomization.shuffle(['c1','c2','c3']);
 
-	var fname = "tatata"
+	var arith_repo = jsPsych.randomization.shuffle(['c1','c2','c3']);
 
 	var filler_clock = 0;
 	var critical_clock = 0;
+	var arith_clock = 0;
 
 	for (var i = 0; i < filler_profile.length; i++){
 		var k = filler_profile[i];
 		for (var j = 0; j < k; j++){
-			timeline.push(filler_repo[filler_clock]);
+			timeline = timeline.concat(filler_repo[filler_clock]);
+			timeline.push(arith_repo[arith_clock])
+			arith_clock++;
 			filler_clock++;
 		}
-		timeline.push(critical_repo[critical_clock]);
+		timeline = timeline.concat(critical_repo[critical_clock]);
+		timeline.push(arith_repo[arith_clock]);
+		arith_clock++;
 		critical_clock++;
 	}
-
 
 	var check_consent = function(elem) {
 	  if ($('#consent_checkbox').is(':checked')) {
@@ -75,14 +79,12 @@
 	  return false;
 	};
 
-
 	var welcome = {
 	  type:'external-html',
 	  url: "resources/welcome.html",
 	  cont_btn: "start",
 	  check_fn: check_consent,
 	};
-
 
 
   jsPsych.init({

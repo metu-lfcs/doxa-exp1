@@ -1,19 +1,40 @@
 ;;;
 ;;; Builds jspsych experiments
 ;;;
-
+	
 (load "aux.lisp")
 (setf *random-state* (make-random-state t))
 
-(defparameter *header* (aux:read-file-as-string (make-pathname :name "resources/header")))
-(defparameter *preamble* (aux:read-file-as-string (make-pathname :name "resources/preamble")))
-(defparameter *consent-block* (aux:read-file-as-string (make-pathname :name "resources/consent-block")))
+(defmacro update-string (name str)
+  `(setf ,name (concatenate 'string ,name ,str)))
 
-(defparameter *preamble* (aux:read-file-as-string (make-pathname :name "resources/preamble")))
-(defparameter *item-repo* (aux:csv-to-str-list (make-pathname :name "resources/Items.csv")))
+(defparameter *header*
+  (aux:read-file-as-string (make-pathname :name "resources/header")))
+(defparameter *preamble*
+  (aux:read-file-as-string (make-pathname :name "resources/preamble")))
+(defparameter *consent-block*
+  (aux:read-file-as-string (make-pathname :name "resources/consent-block")))
+(defparameter *footer*
+  (aux:read-file-as-string (make-pathname :name "resources/footer")))
+(defparameter *item-repo*
+  (aux:csv-to-str-list (make-pathname :name "resources/Items.csv")))
+
+(defparameter *trial-store* "")
+
+(defparameter *critical-items* nil)
+(defparameter *filler-items* nil)
+(defparameter *question-items* nil)
+(defparameter *arith-items* nil)
+
+(defparameter *critical-repo* "")
+(defparameter *filler-repo* "")
+(defparameter *question-repo* "")
+(defparameter *arith-repo* "")
+
 (defparameter *trial-count* (let ((init -1)) #'(lambda () (incf init))))
 
-(defparameter *choices* "['Üzülür','Bilemem','Değişmez','Sevinir']")
+(defparameter *choices* "['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']")
+
 
 (defun build-item (item &key (replace-dollar nil))
   (let ((id (first item))
@@ -22,7 +43,7 @@
 		(question (fourth item)))
 	(concatenate 'string 
 	"
-	var trial_" (write-to-string (funcall *trial-count*)) "= {
+	var trial_" id "= {
 		type: 'survey-multi-choice',
 	  	id: '"
 		id
@@ -49,7 +70,7 @@
 		 (new-options (aux:shuffle-list options)))
 	(concatenate 'string
 	"
-	var trial_" (write-to-string (funcall *trial-count*)) "= {
+	var trial_" id "= {
       type: 'survey-multi-choice',
 	  id: '"
 	  id
@@ -57,7 +78,7 @@
 	  correct: '"
 	  correct
 	  "',
-	  preamble: '<div style=\"margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)\"><br/><br/><br/><br/>"
+	  preamble: '<div style=\"margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)\"><br/><br/><br/><br/>"
 	  prompt
 	  "</div>',
       questions: [{prompt: '', options: ['" (first new-options) "', '" (second new-options) "'], required: true}],
@@ -72,7 +93,7 @@
 		 (new-options (aux:shuffle-list options)))
 	(concatenate 'string
 	"
-	var trial_" (write-to-string (funcall *trial-count*)) "= {
+	var trial_" id "= {
       type: 'survey-multi-choice',
 	  id: '"
 	  id
@@ -80,7 +101,7 @@
 	  correct: '"
 	  correct
 	  "',
-	  preamble: '<div style=\"margin: 50px auto; width: 1000px; height: 250px; background-color: rgb(220, 220, 220)\"><br/><br/><br/><br/>"
+	  preamble: '<div style=\"margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)\"><br/><br/><br/><br/>"
 	  prompt
 	  "</div>',
       questions: [{prompt: '', options: ['" (first new-options) "', '" (second new-options) "', '" (third new-options) "'], required: true}],
@@ -89,75 +110,112 @@
 
 
 (defun build-timeline ()
-	(format nil "[~{trial_~a,~}]" (let ((store))
-									(dotimes (x (funcall *trial-count*) (reverse store))
-									  (push x store)))))
+	(concatenate 'string
+	"
+	var timeline = [welcome,instructions];
+
+	var filler_profile = [3,2,3,3,2,2,3];
+
+	var filler_repo = jsPsych.randomization.shuffle([" *filler-repo* "]); 
+
+	var critical_repo = jsPsych.randomization.shuffle([" *critical-repo* "]);
+
+	var arith_repo = jsPsych.randomization.shuffle([" *arith-repo* "]);
+
+	var filler_clock = 0;
+	var critical_clock = 0;
+	var arith_clock = 0;
+
+	for (var i = 0; i < filler_profile.length - 1; i++){
+		var k = filler_profile[i];
+		for (var j = 0; j < k; j++){
+			timeline = timeline.concat(filler_repo[filler_clock]);
+			timeline.push(arith_repo[arith_clock])
+			arith_clock++;
+			filler_clock++;
+		}
+		timeline = timeline.concat(critical_repo[critical_clock]);
+		timeline.push(arith_repo[arith_clock]);
+		arith_clock++;
+		critical_clock++;
+	}
+
+	for (var i = 0; i < filler_profile[-1]; i++){
+		timeline = timeline.concat(filler_repo[filler_clock]);
+		timeline.push(arith_repo[arith_clock])
+		arith_clock++;
+		filler_clock++;
+    }
+
+	timeline.push(goodbye);
+
+
+  "))
 
 (defun build-footer ()
   (concatenate 'string
   "
   jsPsych.init({
     timeline:" (build-timeline) ",
-	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
     default_iti: 250
   });
 	</script>
 </html>"))
 
-(defmacro update-string (name str)
-  `(setf ,name (concatenate 'string ,name ,str)))
+
+(defun build-trials () 
+  (dolist (i *item-repo*)
+	(let ((head (car i)))
+	  (unless (zerop (length (car i)))
+		(case (char head 0)
+		  (#\C
+		   (update-string *trial-store* (build-item i :replace-dollar "bili"))
+		   (update-string *critical-repo*
+						  (format nil "[trial_~A,trial_Q~A]," head (subseq head 1 3))))
+		  (#\F
+		   (update-string *trial-store* (build-item i))
+		   (update-string *filler-repo*
+						  (format nil "[trial_~A,trial_Q~A]," head (subseq head 1 3))))
+		  (#\A 
+		   (update-string *trial-store* (build-arith i))
+		   (update-string *arith-repo*
+						  (format nil "trial_~A," head)))
+		  (#\Q 
+		   (update-string  *trial-store* (build-question i))))))))
 
 
-(defun fetch-items (char-prefix)
-  " c: critical f: filler; they come paired with their questions" 
-  (mapcar 
-	#'(lambda (x)
-		(let* ((id (car x))
-			   (num (subseq id 1 3))
-			   (ques-key (concatenate 'string "Q" num))
-			   (arith-key (concatenate 'string "A" num))
-			   )
-		  (list x (assoc ques-key *item-repo* :test #'equal) (assoc arith-key *item-repo* :test #'equal))))
-	(remove-if-not
-	  #'(lambda (x)
-		  (let ((word (car x)))
-			(and (plusp (length word)) (eq (char (car x) 0) char-prefix))))
-	  *item-repo*)))
 
-(defun make-item-repo (char-prefix)
-  (let ((item-list (aux:shuffle-list (fetch-items char-prefix))))
-	#'(lambda ()
-		(pop item-list))))
 
-(defparameter *give-critical* (make-item-repo #\C))
-(defparameter *give-filler* (make-item-repo #\F))
 
+
+; (defun fetch-items (char-prefix)
+;   " c: critical f: filler; they come paired with their questions" 
+;   (mapcar 
+; 	#'(lambda (x)
+; 		(let* ((id (car x))
+; 			   (num (subseq id 1 3))
+; 			   (ques-key (concatenate 'string "Q" num))
+; 			   (arith-key (concatenate 'string "A" num))
+; 			   )
+; 		  (list x (assoc ques-key *item-repo* :test #'equal) (assoc arith-key *item-repo* :test #'equal))))
+; 	(remove-if-not
+; 	  #'(lambda (x)
+; 		  (let ((word (car x)))
+; 			(and (plusp (length word)) (eq (char (car x) 0) char-prefix))))
+; 	  *item-repo*)))
 
 
 (defun build-experiment ()
   (let ((exp-path (make-pathname :name "kain.html"))
 		(store *header*))
+	(if (probe-file exp-path)
+	  (delete-file exp-path))
+	(build-trials)
 	(update-string store *preamble*)
-	(dolist (n *filler-profile*)
-	  (dotimes (i n)
-		(let* ((item (funcall *give-filler*))
-			   (filler (car item))
-			   (question (cadr item))
-			   (arith (caddr item)))
-		  (update-string store (build-item filler))
-		  (update-string store (build-question question))
-		  (update-string store (build-arith arith))
-		  ))
-	  (let* ((item (funcall *give-critical*))
-			 (critical (car item))
-			 (question (cadr item))
-			 (arith (caddr item)))
-		(unless (null item)
-		  (update-string store (build-item critical :replace-dollar (cadr group)))
-		  (update-string store (build-question question))
-		  (update-string store (build-arith arith))
-		  )))
-	(update-string store (build-footer))
+	(update-string store *consent-block*)
+	(update-string store *trial-store*)
+	(update-string store (build-timeline))
+	(update-string store *footer*)
 	(with-open-file (str exp-path :direction :output :if-does-not-exist :create :if-exists :overwrite)
 	  (format str "~A" store))))
 

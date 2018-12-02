@@ -1,0 +1,44 @@
+
+	var check_consent = function(elem) {
+	  if ($('#consent_checkbox').is(':checked')) {
+	  	subject_email = $('#email_text').val();
+		subject_name = $('#name_text').val();
+		jsPsych.data.addProperties({
+		  subject: subject_id,
+		  subject_email: subject_email,
+		  subject_name: subject_name,
+		  group: group_id
+		});
+	    return true;
+	  }
+	  else {
+	    alert("Deneye katılabilmek için gönüllü katılım kutusunu işaretlemeniz gerekiyor.");
+	    return false;
+	  }
+	  return false;
+	};
+
+	var welcome = {
+	  type:'external-html',
+	  url: "resources/welcome.html",
+	  cont_btn: "start",
+	  check_fn: check_consent,
+	};
+
+	var instructions = {
+	    type: 'instructions',
+	    pages: [ '<div style="margin: 50px auto; width: 800px; height: 250px; align: left" id="consent" align="left"> Birazdan size okuyup hakkında sorular cevaplandırmanız için çeşitli kısa metinler verilecektir. Metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.  <br/> <br/> İlk olarak her metin ile birlikte bir soru sorulacak ve yanıtlamanız istenecek. Daha sonra metin ekrandan kaldırılıp metindeki durumla ilgili bir soru daha yanıtlamanız istenecek. Üçünü olarak da basit bir aritmetik sorusu sorulacaktır.  <br/> <br/> Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.  <br/> <br/> Lütfen yönergeleri takip ederek testi tamamlayın.'
+	    ],
+	    show_clickable_nav: true 
+	};
+
+	var goodbye = {
+		on_start: function(){ saveData(fname, jsPsych.data.get().csv()); }, 
+	    type: 'instructions',
+	    pages: [ 'Katılımınız için teşekkürler. Bu araştırma hakkında daha fazla bilgi almak isterseniz sorularınızı e171627@metu.edu.tr adresine yöneltebilirsiniz. Lütfen araştırmacıya deneyi bitirdiğinizi söyleyiniz.'
+	    ],
+	    show_clickable_nav: true 
+	};
+
+
+
