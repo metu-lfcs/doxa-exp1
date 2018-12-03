@@ -1,12 +1,12 @@
 Item,Sentence1,Sentence2,Question,Expected Answer,
-C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Sevgilisinin sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Sevgilisi sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,
+C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Arda'nın ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,
 C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir,
 C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatil planından önce ofise yeni bir iş gelmediğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,
 C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir,
 C05,Selin bu dönem matematikten geçmeyi çok istiyor.,Finalden çıktığında soruların çoğunu doğru yaptığını $yor.,Notlar açıklandığında Selin nasıl hisseder?,Üzülür,
 C06,Cenk hayallerindeki işe başvuruyor.,Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini $yor.,Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?,Sevinir,
 F07,Çağrı bu hafta sonu kardan adam yapmak istiyor.,Hava tahminine baktığında Cuma gecesi kar yağacağını görüyor.,Cumartesi sabahı kar yağmadığını gördüğünde nasıl hisseder?,Üzülür,
-F08,Esra masa tenisi maçında Göksu’nun tarafını tutuyor.,Maç günü Göksu’nun bileğini incittiğini öğreniyor.,Maç sonucunda Esra nasıl hisseder?,Bilmiyorum,s
+F08,Esra tenis maçında Göksu’nun tarafını tutuyor.,Maç günü Göksu’nun bileğini incittiğini öğreniyor.,Maç sonucunda Esra nasıl hisseder?,Bilmiyorum,s
 F09,Mehmet öğle yemeklerini her gün yemekhanede yiyor.,Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.,Öğlen yemeğe gittiğinde Mehmet nasıl hisseder?,Bilmiyorum,ü
 F10,Melike yüksek lisans için hedeflediği okula başvuruyor.,Başvuruda istenen belgelerden birini eksik gönderdiğini fark ediyor.,Okula yine de kabul edildiğini öğrenince nasıl hisseder?,Sevinir,
 F11,Oğuzhan mağazanın vitrininde gördüğü ayakkabıyı çok beğeniyor.,Birkaç gün sonra ayakkabının indirime girdiğini duyuyor.,Mağazaya gidip ayakkabının satıldığını öğrenince nasıl hisseder?,Üzülür,
@@ -25,14 +25,14 @@ F23,Dilara çarpışan arabalara binmek istiyor.,Babası Dilara’yı lunaparka 
 F24,Cem Tokyo’ya gitmek için uçak bileti alıyor.,Uçuş günü trafiğe yakalanıp havaalanına geç gidiyor.,Uçuşu rötar yaptığı için yetiştiğini görünce Cem nasıl hisseder?,Sevinir,
 ,,,,,
 ,Comprehension Question ,Correct Answer,Incorrect Answer,Incorrect Answer,
-Q01,Ayça’ya kim sürpriz yapmak istemektedir?,Sevgilisi,Ailesi,Arkadaşları,
+Q01,Ayça’ya kim sürpriz yapmak istemektedir?,Arda,Melih,Burhan,
 Q02,Ailesi Burcu’ya genelde ne hediye almaktadır?,Oyuncak bebek,Oyuncak araba,Ayakkabı,
 Q03,Berk nerede çalışmaktadır?,Ofis,Fabrika,Mağaza,
 Q04,Ece ve kuzey nereye gitmek istemektedir?,Kamp,Konferans,Tatil köyü,
 Q05,Selin’in geçmekte sıkıntı yaşadığı ders hangisidir?,Matematik,Fizik,Edebiyat,
 Q06,Cenk’in girdiği mülakatı gerçekleştiren hangisidir?,Müdür,Patron,CEO,
 Q07,Çağrı kar yağınca hangisini yapmak istemektedir?,Kardan adam,Kartopu savaşı,Kayak,
-Q08,Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?,Masa tenisi,Sırıkla atlama,Basketbol,
+Q08,Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?,Tenis,Sırıkla atlama,Basketbol,
 Q09,Mehmet’in öğle yemeklerini yediği yer hangisidir?,Yemekhane,Restoran,Kantin,
 Q10,Melike hangi eğitim seviyesi için başvuru yapmıştır?,Yüksek lisans,Lisans,Önlisans,
 Q11,Oğuzhan’ın vitrinde beğendiği şey hangisidir?,Ayakkabı,Ceket,Pantolon,
@@ -43,7 +43,7 @@ Q15,Dersi kaç kişinin geçeceği söylenmiştir?,Altı,Dokuz,Üç,
 Q16,Zeynep ve Leman nerede buluşacaklardır?,Kafe,Park,Restoran,
 Q17,Taylan hangi öğününü hazırlamaktadır?,Öğle yemeği,Akşam yemeği,Kahvaltı,
 Q18,Aylin hangi meyveyi yemek istemektedir?,Çilek,Muz,Armut,
-Q19,Nurcan’ın dersi hangi gündür?,Salı,Çarşamba,Cuma,
+Q19,Nurcan’ın gittiği ders hangisidir?,Fizik,Matematik,Biyoloji,
 Q20,Funda yerde ne bulmuştur?,Piyango bileti,Cüzdan,Para,
 Q21,Simay ormanda ne toplamaktadır?,Odun,Çöp,Kozalak,
 Q22,Volkan nasıl bir gün geçirmiştir?,Yoğun,Sıkıcı,Rahat,
@@ -67,7 +67,7 @@ A14,47x39,işleminin sonucu,1750,den,büyüktür,küçüktür,1833
 A15,26X81,işleminin sonucu,2000,den,büyüktür,küçüktür,2106
 A16,91x21,işleminin sonucu,2000,den,küçüktür,büyüktür,1911
 A17,43x22,işleminin sonucu,980,den,küçüktür,büyüktür,946
-A18,16x94,işleminin sonucu,1500,den,büyüktür,küçüktür,1504
+A18,16x94,işleminin sonucu,1450,den,büyüktür,küçüktür,1504
 A19,99x19,işleminin sonucu,1850,den,büyüktür,küçüktür,1881
 A20,25x73,işleminin sonucu,1900,den,küçüktür,büyüktür,1825
 A21,87x36,işleminin sonucu,3050,den,büyüktür,küçüktür,3132
