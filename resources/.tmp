@@ -35,6 +35,7 @@
 
 (defparameter *choices* "['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']")
 
+
 (defun build-item (item &key (replace-dollar nil))
   (let ((id (first item))
 		(text1 (second item))
@@ -168,7 +169,7 @@
 	  (unless (zerop (length (car i)))
 		(case (char head 0)
 		  (#\C
-		   (update-string *trial-store* (build-item i :replace-dollar "düşünü"))
+		   (update-string *trial-store* (build-item i :replace-dollar "zannedi"))
 		   (update-string *critical-repo*
 						  (format nil "[trial_~A,trial_Q~A]," head (subseq head 1 3))))
 		  (#\F

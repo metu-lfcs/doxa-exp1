@@ -5,7 +5,9 @@
 
 	var subject_name = "not_defined"
 
-	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	//var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	var group_id = "d"; 
+
 	
 	var fname = "doxa".concat("-", group_id, "-", subject_id);
 
