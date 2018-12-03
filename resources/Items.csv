@@ -1,5 +1,5 @@
 Item,Sentence1,Sentence2,Question,Expected Answer,
-C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Arda'nın ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,
+C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Arda\'nın ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,
 C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir,
 C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatil planından önce ofise yeni bir iş gelmediğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,
 C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir,

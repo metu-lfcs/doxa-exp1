@@ -5,12 +5,19 @@
 
 	var subject_name = "not_defined"
 
-	//var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
-	var group_id = "d"; 
+	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
 
-	
+	var dollar_repl = ""; 
+
+	if (group_id == "b"){
+		dollar_repl = "bili";
+	} else if (group_id == "z"){
+		dollar_repl = "zannedi";
+	} else if (group_id == "d"){
+		dollar_repl = "düşünü";
+	}
+
 	var fname = "doxa".concat("-", group_id, "-", subject_id);
-
 
 	function saveData(name, data){
 	  var xhr = new XMLHttpRequest();
@@ -18,5 +25,3 @@
 	  xhr.setRequestHeader('Content-Type', 'application/json');
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
 	}
-
-
