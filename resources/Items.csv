@@ -1,24 +1,24 @@
-Item,Sentence1,Sentence2,Question,Expected Answer,
-C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Arda\'nın ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.,Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,
-C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir,
-C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatil planından önce ofise yeni bir iş gelmediğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,
-C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir,
-C05,Selin bu dönem matematikten geçmeyi çok istiyor.,Finalden çıktığında soruların çoğunu doğru yaptığını $yor.,Notlar açıklandığında Selin nasıl hisseder?,Üzülür,
-C06,Cenk hayallerindeki işe başvuruyor.,Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini $yor.,Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?,Sevinir,
+Item,Sentence1,Sentence2,Question,Expected Answer (zannet),Expected answer (bil)
+C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Arda’nın ona sürpriz yapacağını duyduğunda konsere bilet aldığını $yor.,Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,Sevinir
+C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir,Üzülür
+C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatilden önce elindeki bütün işleri bitirdiğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,Sevinir
+C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir,Üzülür
+C05,Selin bu dönem matematikten geçmeyi çok istiyor.,Finalden çıktığında soruların çoğunu doğru yaptığını $yor.,Notlar açıklandığında Selin nasıl hisseder?,Üzülür,Sevinir
+C06,Cenk hayallerindeki işe başvuruyor.,Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini $yor.,Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?,Sevinir,Üzülür
 F07,Çağrı bu hafta sonu kardan adam yapmak istiyor.,Hava tahminine baktığında Cuma gecesi kar yağacağını görüyor.,Cumartesi sabahı kar yağmadığını gördüğünde nasıl hisseder?,Üzülür,
-F08,Esra tenis maçında Göksu’nun tarafını tutuyor.,Maç günü Göksu’nun bileğini incittiğini öğreniyor.,Maç sonucunda Esra nasıl hisseder?,Bilmiyorum,s
-F09,Mehmet öğle yemeklerini her gün yemekhanede yiyor.,Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.,Öğlen yemeğe gittiğinde Mehmet nasıl hisseder?,Bilmiyorum,ü
+F08,Esra tenis maçında Göksu’nun tarafını tutuyor.,Maç günü Göksu’nun bileğini incittiğini öğreniyor.,Maç sonucunda Esra nasıl hisseder?,Bilmiyorum,
+F09,Mehmet öğle yemeklerini her gün yemekhanede yiyor.,Bugün pırasa yemeği olduğunu duyunca heyecanlanıyor.,Öğlen yemeğe gittiğinde Mehmet nasıl hisseder?,Bilmiyorum,
 F10,Melike yüksek lisans için hedeflediği okula başvuruyor.,Başvuruda istenen belgelerden birini eksik gönderdiğini fark ediyor.,Okula yine de kabul edildiğini öğrenince nasıl hisseder?,Sevinir,
 F11,Oğuzhan mağazanın vitrininde gördüğü ayakkabıyı çok beğeniyor.,Birkaç gün sonra ayakkabının indirime girdiğini duyuyor.,Mağazaya gidip ayakkabının satıldığını öğrenince nasıl hisseder?,Üzülür,
-F12,Canan para biriktirmek için bir kumbara alıyor.,Bir miktar para biriktirdikten sonra kumbarası olduğunu unutuyor.,Aylar sonra kumbarası tekrar aklına geldiğinde nasıl hisseder?,Bilmiyorum,s
-F13,Elif Kars’a gitmek için tren bileti almak istiyor.,Biletlerin salı günü satışa çıkacağını okuyor.,Salı akşamı bilet almaya gittiğinde Elif nasıl hisseder?,Bilmiyorum,ü
-F14,Barış tatilde İstanbul’daki arkadaşlarını ziyaret etmek istiyor.,Tatilin ikinci haftasında İstanbul’a gitmeyi planlıyor.,Tatilin ilk haftası Barış nasıl hisseder?,Bilmiyorum,s
-F15,Emre aldığı bir dersten kalmaktan korkuyor.,Hocası sınıftan sadece altı kişinin geçtiğini söylüyor.,Notlar açıklandığında Emre nasıl hisseder?,Bilmiyorum,ü
+F12,Canan para biriktirmek için bir kumbara alıyor.,Bir miktar para biriktirdikten sonra kumbarası olduğunu unutuyor.,Aylar sonra kumbarası tekrar aklına geldiğinde nasıl hisseder?,Bilmiyorum,
+F13,Elif Kars’a gitmek için tren bileti almak istiyor.,Biletlerin salı günü satışa çıkacağını okuyor.,Salı akşamı bilet almaya gittiğinde Elif nasıl hisseder?,Bilmiyorum,
+F14,Barış tatilde İstanbul’daki arkadaşlarını ziyaret etmek istiyor.,Tatilin ikinci haftasında İstanbul’a gitmeyi planlıyor.,Tatilin ilk haftası Barış nasıl hisseder?,Bilmiyorum,
+F15,Emre aldığı bir dersten kalmaktan korkuyor.,Hocası sınıftan sadece altı kişinin geçtiğini söylüyor.,Notlar açıklandığında Emre nasıl hisseder?,Bilmiyorum,
 F16,Zeynep ve Leman birbirlerini özledikleri için buluşmaya karar veriyorlar.,Zeynep buluşacakları kafeye erkenden gidiyor.,Leman geldiğinde Zeynep nasıl hisseder?,Sevinir,
-F17,Taylan kendisine akşam yemeği hazırlıyor.,Tencereyi ocağa koyduktan sonra içeri gidip televizyon izliyor.,Bir saat sonra mutfağa döndüğünde Taylan nasıl hisseder?,Bilmiyorum,ü
+F17,Taylan kendisine akşam yemeği hazırlıyor.,Tencereyi ocağa koyduktan sonra içeri gidip televizyon izliyor.,Bir saat sonra mutfağa döndüğünde Taylan nasıl hisseder?,Bilmiyorum,
 F18,Aylin’in canı çilek yemek istiyor.,Abisi pazara gitmek için evden çıkarken ona çilek almasını söylüyor.,Abisi çilek alıp döndüğünde Aylin nasıl hisseder?,Sevinir,
 F19,Nurcan her hafta fizik dersine gidiyor.,Dersten çıkınca öğretmeninin ödev verdiğini unutuyor.,Ödevi olduğunu hatırladığında Nurcan nasıl hisseder?,Üzülür,
-F20,Funda yolda yürürken yerde bir piyango bileti buluyor.,Eve gidip bilete ikramiye çıkıp çıkmadığını kontrol ediyor.,Çekiliş sonuçlarını öğrendiğinde Funda nasıl hisseder?,Bilmiyorum,s
+F20,Funda yolda yürürken yerde bir piyango bileti buluyor.,Eve gidip bilete ikramiye çıkıp çıkmadığını kontrol ediyor.,Çekiliş sonuçlarını öğrendiğinde Funda nasıl hisseder?,Bilmiyorum,
 F21,Simay kamp ateşi için odun toplamaya ormana gidiyor.,Yeterli miktarda topladığında geri dönmeye karar veriyor.,Kaybolduğunu fark ettiğinde Simay nasıl hisseder?,Üzülür,
 F22,Volkan yoğun bir günün ardından eve dönüyor.,Kapıya geldiğinde anahtarını bulamıyor.,Biraz sonra ablasının eve geldiğini gördüğünde Volkan nasıl hisseder?,Sevinir,
 F23,Dilara çarpışan arabalara binmek istiyor.,Babası Dilara’yı lunaparka götürüyor.,Gidip lunaparkın kapalı olduğunu gördüklerinde Dilara nasıl hisseder?,Üzülür,
