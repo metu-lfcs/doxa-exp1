@@ -1,6 +1,9 @@
 
 	var check_consent = function(elem) {
-	  if ($('#consent_checkbox').is(':checked')) {
+	  if ($('#consent_checkbox').is(':checked') && $('#subject_email')) {
+		if ($('#followup_checkbox').is(':checked')) {
+			followup_consent = "yes";
+		}
 	  	subject_email = $('#email_text').val();
 		subject_name = $('#name_text').val();
 		jsPsych.data.addProperties({

@@ -90,7 +90,7 @@
     var trial_C01= {
         type: 'survey-multi-choice',
           id: 'C01',
-        preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça en sevdiği müzik grubunun konserine gitmek istiyor.<br/>Arda\'nın ona sürpriz yapacağını duyduğunda sevdiği grubun konserine bilet aldığını $yor.<br/><br/><br/>Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?</div>'.replace("$",dollar_repl),
+        preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Ayça en sevdiği müzik grubunun konserine gitmek istiyor.<br/>Arda’nın ona sürpriz yapacağını duyduğunda konsere bilet aldığını $yor.<br/><br/><br/>Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?</div>'.replace("$",dollar_repl),
         questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
   };
   
@@ -104,7 +104,7 @@
     var trial_C03= {
         type: 'survey-multi-choice',
           id: 'C03',
-        preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.<br/>Tatil planından önce ofise yeni bir iş gelmediğini $yor.<br/><br/><br/>Aylık iş takvimi açıklandığında Berk nasıl hisseder?</div>'.replace("$",dollar_repl),
+        preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/>Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.<br/>Tatilden önce elindeki bütün işleri bitirdiğini $yor.<br/><br/><br/>Aylık iş takvimi açıklandığında Berk nasıl hisseder?</div>'.replace("$",dollar_repl),
         questions: [{prompt: '', options: jsPsych.randomization.shuffle(['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']), required: true}],
   };
   
@@ -260,7 +260,7 @@
       id: 'Q01',
       correct: 'Arda',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Ayça’ya kim sürpriz yapmak istemektedir?</div>',
-      questions: [{prompt: '', options: ['Burhan', 'Melih', 'Arda'], required: true}],
+      questions: [{prompt: '', options: ['Burhan', 'Arda', 'Melih'], required: true}],
   };
   
     var trial_Q02= {
@@ -268,7 +268,7 @@
       id: 'Q02',
       correct: 'Oyuncak bebek',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Ailesi Burcu’ya genelde ne hediye almaktadır?</div>',
-      questions: [{prompt: '', options: ['Oyuncak bebek', 'Oyuncak araba', 'Ayakkabı'], required: true}],
+      questions: [{prompt: '', options: ['Oyuncak araba', 'Oyuncak bebek', 'Ayakkabı'], required: true}],
   };
   
     var trial_Q03= {
@@ -276,7 +276,7 @@
       id: 'Q03',
       correct: 'Ofis',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Berk nerede çalışmaktadır?</div>',
-      questions: [{prompt: '', options: ['Fabrika', 'Ofis', 'Mağaza'], required: true}],
+      questions: [{prompt: '', options: ['Mağaza', 'Ofis', 'Fabrika'], required: true}],
   };
   
     var trial_Q04= {
@@ -284,7 +284,7 @@
       id: 'Q04',
       correct: 'Kamp',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Ece ve kuzey nereye gitmek istemektedir?</div>',
-      questions: [{prompt: '', options: ['Konferans', 'Tatil köyü', 'Kamp'], required: true}],
+      questions: [{prompt: '', options: ['Kamp', 'Tatil köyü', 'Konferans'], required: true}],
   };
   
     var trial_Q05= {
@@ -292,7 +292,7 @@
       id: 'Q05',
       correct: 'Matematik',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Selin’in geçmekte sıkıntı yaşadığı ders hangisidir?</div>',
-      questions: [{prompt: '', options: ['Edebiyat', 'Matematik', 'Fizik'], required: true}],
+      questions: [{prompt: '', options: ['Matematik', 'Edebiyat', 'Fizik'], required: true}],
   };
   
     var trial_Q06= {
@@ -300,7 +300,7 @@
       id: 'Q06',
       correct: 'Müdür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Cenk’in girdiği mülakatı gerçekleştiren hangisidir?</div>',
-      questions: [{prompt: '', options: ['CEO', 'Patron', 'Müdür'], required: true}],
+      questions: [{prompt: '', options: ['CEO', 'Müdür', 'Patron'], required: true}],
   };
   
     var trial_Q07= {
@@ -308,7 +308,7 @@
       id: 'Q07',
       correct: 'Kardan adam',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Çağrı kar yağınca hangisini yapmak istemektedir?</div>',
-      questions: [{prompt: '', options: ['Kartopu savaşı', 'Kardan adam', 'Kayak'], required: true}],
+      questions: [{prompt: '', options: ['Kayak', 'Kardan adam', 'Kartopu savaşı'], required: true}],
   };
   
     var trial_Q08= {
@@ -316,7 +316,7 @@
       id: 'Q08',
       correct: 'Tenis',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Esra’nın hangi spor müsabakalarıyla ilgilendiği bilinmektedir?</div>',
-      questions: [{prompt: '', options: ['Sırıkla atlama', 'Basketbol', 'Tenis'], required: true}],
+      questions: [{prompt: '', options: ['Basketbol', 'Sırıkla atlama', 'Tenis'], required: true}],
   };
   
     var trial_Q09= {
@@ -324,7 +324,7 @@
       id: 'Q09',
       correct: 'Yemekhane',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Mehmet’in öğle yemeklerini yediği yer hangisidir?</div>',
-      questions: [{prompt: '', options: ['Yemekhane', 'Restoran', 'Kantin'], required: true}],
+      questions: [{prompt: '', options: ['Yemekhane', 'Kantin', 'Restoran'], required: true}],
   };
   
     var trial_Q10= {
@@ -332,7 +332,7 @@
       id: 'Q10',
       correct: 'Yüksek lisans',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Melike hangi eğitim seviyesi için başvuru yapmıştır?</div>',
-      questions: [{prompt: '', options: ['Lisans', 'Yüksek lisans', 'Önlisans'], required: true}],
+      questions: [{prompt: '', options: ['Lisans', 'Önlisans', 'Yüksek lisans'], required: true}],
   };
   
     var trial_Q11= {
@@ -340,7 +340,7 @@
       id: 'Q11',
       correct: 'Ayakkabı',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Oğuzhan’ın vitrinde beğendiği şey hangisidir?</div>',
-      questions: [{prompt: '', options: ['Pantolon', 'Ceket', 'Ayakkabı'], required: true}],
+      questions: [{prompt: '', options: ['Ayakkabı', 'Pantolon', 'Ceket'], required: true}],
   };
   
     var trial_Q12= {
@@ -348,7 +348,7 @@
       id: 'Q12',
       correct: 'Para biriktirmek',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Canan hangisini yapmak istemektedir?</div>',
-      questions: [{prompt: '', options: ['Para kazanmak', 'Para biriktirmek', 'Kumbara biriktirmek'], required: true}],
+      questions: [{prompt: '', options: ['Kumbara biriktirmek', 'Para kazanmak', 'Para biriktirmek'], required: true}],
   };
   
     var trial_Q13= {
@@ -356,7 +356,7 @@
       id: 'Q13',
       correct: 'Kars',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Elif nereye gitmek istemektedir?</div>',
-      questions: [{prompt: '', options: ['Ardahan', 'Batum', 'Kars'], required: true}],
+      questions: [{prompt: '', options: ['Kars', 'Batum', 'Ardahan'], required: true}],
   };
   
     var trial_Q14= {
@@ -364,7 +364,7 @@
       id: 'Q14',
       correct: 'Birinci',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Barış tatilin kaçıncı haftasında İstanbul’a gitmeyi planlamıştır?</div>',
-      questions: [{prompt: '', options: ['İkinci', 'Birinci', 'Üçüncü'], required: true}],
+      questions: [{prompt: '', options: ['Birinci', 'İkinci', 'Üçüncü'], required: true}],
   };
   
     var trial_Q15= {
@@ -372,7 +372,7 @@
       id: 'Q15',
       correct: 'Altı',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Dersi kaç kişinin geçeceği söylenmiştir?</div>',
-      questions: [{prompt: '', options: ['Üç', 'Altı', 'Dokuz'], required: true}],
+      questions: [{prompt: '', options: ['Altı', 'Dokuz', 'Üç'], required: true}],
   };
   
     var trial_Q16= {
@@ -380,7 +380,7 @@
       id: 'Q16',
       correct: 'Kafe',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Zeynep ve Leman nerede buluşacaklardır?</div>',
-      questions: [{prompt: '', options: ['Kafe', 'Park', 'Restoran'], required: true}],
+      questions: [{prompt: '', options: ['Restoran', 'Kafe', 'Park'], required: true}],
   };
   
     var trial_Q17= {
@@ -388,7 +388,7 @@
       id: 'Q17',
       correct: 'Öğle yemeği',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Taylan hangi öğününü hazırlamaktadır?</div>',
-      questions: [{prompt: '', options: ['Akşam yemeği', 'Kahvaltı', 'Öğle yemeği'], required: true}],
+      questions: [{prompt: '', options: ['Akşam yemeği', 'Öğle yemeği', 'Kahvaltı'], required: true}],
   };
   
     var trial_Q18= {
@@ -396,7 +396,7 @@
       id: 'Q18',
       correct: 'Çilek',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Aylin hangi meyveyi yemek istemektedir?</div>',
-      questions: [{prompt: '', options: ['Muz', 'Çilek', 'Armut'], required: true}],
+      questions: [{prompt: '', options: ['Çilek', 'Muz', 'Armut'], required: true}],
   };
   
     var trial_Q19= {
@@ -404,7 +404,7 @@
       id: 'Q19',
       correct: 'Fizik',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Nurcan’ın gittiği ders hangisidir?</div>',
-      questions: [{prompt: '', options: ['Fizik', 'Biyoloji', 'Matematik'], required: true}],
+      questions: [{prompt: '', options: ['Biyoloji', 'Matematik', 'Fizik'], required: true}],
   };
   
     var trial_Q20= {
@@ -412,7 +412,7 @@
       id: 'Q20',
       correct: 'Piyango bileti',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Funda yerde ne bulmuştur?</div>',
-      questions: [{prompt: '', options: ['Piyango bileti', 'Cüzdan', 'Para'], required: true}],
+      questions: [{prompt: '', options: ['Para', 'Piyango bileti', 'Cüzdan'], required: true}],
   };
   
     var trial_Q21= {
@@ -420,7 +420,7 @@
       id: 'Q21',
       correct: 'Odun',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Simay ormanda ne toplamaktadır?</div>',
-      questions: [{prompt: '', options: ['Odun', 'Çöp', 'Kozalak'], required: true}],
+      questions: [{prompt: '', options: ['Kozalak', 'Çöp', 'Odun'], required: true}],
   };
   
     var trial_Q22= {
@@ -428,7 +428,7 @@
       id: 'Q22',
       correct: 'Yoğun',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Volkan nasıl bir gün geçirmiştir?</div>',
-      questions: [{prompt: '', options: ['Yoğun', 'Rahat', 'Sıkıcı'], required: true}],
+      questions: [{prompt: '', options: ['Sıkıcı', 'Yoğun', 'Rahat'], required: true}],
   };
   
     var trial_Q23= {
@@ -436,7 +436,7 @@
       id: 'Q23',
       correct: 'Çarpışan arabalar',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Dilara lunaparka ne için gitmek istemektedir?</div>',
-      questions: [{prompt: '', options: ['Çarpışan arabalar', 'Güldüren aynalar', 'Gondol'], required: true}],
+      questions: [{prompt: '', options: ['Gondol', 'Güldüren aynalar', 'Çarpışan arabalar'], required: true}],
   };
   
     var trial_Q24= {
@@ -444,7 +444,7 @@
       id: 'Q24',
       correct: 'Tokyo',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>Cem nereye gitmektedir?</div>',
-      questions: [{prompt: '', options: ['New York', 'Tokyo', 'Londra'], required: true}],
+      questions: [{prompt: '', options: ['Londra', 'Tokyo', 'New York'], required: true}],
   };
   
     var trial_A01= {
@@ -452,7 +452,7 @@
       id: 'A01',
       correct: 'küçüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>81x55 işleminin sonucu 4500\'den</div>',
-      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
   };
   
     var trial_A02= {
@@ -468,7 +468,7 @@
       id: 'A03',
       correct: 'küçüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>57x26 işleminin sonucu 1600\'den</div>',
-      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
   };
   
     var trial_A04= {
@@ -484,7 +484,7 @@
       id: 'A05',
       correct: 'küçüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>30x66 işleminin sonucu 2050\'den</div>',
-      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
   };
   
     var trial_A06= {
@@ -492,7 +492,7 @@
       id: 'A06',
       correct: 'büyüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>79x85 işleminin sonucu 6600\'den</div>',
-      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
   };
   
     var trial_A07= {
@@ -508,7 +508,7 @@
       id: 'A08',
       correct: 'küçüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>28x35 işleminin sonucu 1050\'den</div>',
-      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
   };
   
     var trial_A09= {
@@ -532,7 +532,7 @@
       id: 'A11',
       correct: 'büyüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>37x93 işleminin sonucu 3350\'den</div>',
-      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
   };
   
     var trial_A12= {
@@ -556,7 +556,7 @@
       id: 'A14',
       correct: 'büyüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>47x39 işleminin sonucu 1750\'den</div>',
-      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
   };
   
     var trial_A15= {
@@ -564,7 +564,7 @@
       id: 'A15',
       correct: 'büyüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>26X81 işleminin sonucu 2000\'den</div>',
-      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
   };
   
     var trial_A16= {
@@ -580,7 +580,7 @@
       id: 'A17',
       correct: 'küçüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>43x22 işleminin sonucu 980\'den</div>',
-      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
+      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
   };
   
     var trial_A18= {
@@ -588,7 +588,7 @@
       id: 'A18',
       correct: 'büyüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>16x94 işleminin sonucu 1450\'den</div>',
-      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
   };
   
     var trial_A19= {
@@ -620,7 +620,7 @@
       id: 'A22',
       correct: 'küçüktür',
       preamble: '<div style="margin: 50px auto; width: 800px; height: 250px; background-color: rgb(220, 220, 220)"><br/><br/><br/><br/>77x18 işleminin sonucu 1450\'den</div>',
-      questions: [{prompt: '', options: ['büyüktür', 'küçüktür'], required: true}],
+      questions: [{prompt: '', options: ['küçüktür', 'büyüktür'], required: true}],
   };
   
     var trial_A23= {
