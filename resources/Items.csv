@@ -1,7 +1,7 @@
 Item,Sentence1,Sentence2,Question,Expected Answer (zannet),Expected answer (bil)
 C01,Ayça en sevdiği müzik grubunun konserine gitmek istiyor.,Arda’nın ona sürpriz yapacağını duyduğunda konsere bilet aldığını $yor.,Arda sürprizin ne olduğunu söylediğinde Ayça nasıl hisseder?,Üzülür,Sevinir
 C02,Burcu artık doğum gününde ailesinin ona oyuncak bebek almasını istemiyor.,Doğum günü yaklaştığında ailesinin ona yine oyuncak bebek aldığını $yor.,Paketi açıp hediyesini gördüğünde Burcu nasıl hisseder?,Sevinir,Üzülür
-C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,Tatilden önce gereken tüm işleri bitirdiğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,Sevinir
+C03,Berk elindeki işleri bitirip tatile çıkmayı sabırsızlıkla bekliyor.,O ayki tüm işleri bitirdiğini $yor.,Aylık iş takvimi açıklandığında Berk nasıl hisseder?,Üzülür,Sevinir
 C04,Ece ve Kuzey ikisi de derslerini geçerse birlikte kampa gitmeye karar veriyorlar.,Ece Kuzey’in bir dersten kaldığını $yor.,Kuzey’in notlarını öğrendiğinde Ece nasıl hisseder?,Sevinir,Üzülür
 C05,Selin bu dönem matematikten geçmeyi çok istiyor.,Finalden çıktığında soruların çoğunu doğru yaptığını $yor.,Notlar açıklandığında Selin nasıl hisseder?,Üzülür,Sevinir
 C06,Cenk hayallerindeki işe başvuruyor.,Mülakatta verdiği bir cevabın müdürü sinirlendirdiğini $yor.,Mülakat sonucunu öğrendiğinde Cenk nasıl hisseder?,Sevinir,Üzülür
