@@ -1,6 +1,6 @@
 
 	var check_consent = function(elem) {
-	  if ($('#consent_checkbox').is(':checked') && $('#subject_email')) {
+	  if ($('#consent_checkbox').is(':checked')) {
 		if ($('#followup_checkbox').is(':checked')) {
 			followup_consent = "yes";
 		}
@@ -15,7 +15,7 @@
 	    return true;
 	  }
 	  else {
-	    alert("Deneye katılabilmek için gönüllü katılım kutusunu işaretlemeniz gerekiyor.");
+	    alert("Deneye katılabilmek gönüllü katılım kutusunu işaretlemeniz gerekiyor.");
 	    return false;
 	  }
 	  return false;

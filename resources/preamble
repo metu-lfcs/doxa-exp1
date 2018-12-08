@@ -7,7 +7,8 @@
 
 	var followup_consent = "no"
 
-	var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	//var group_id = jsPsych.randomization.sampleWithoutReplacement(["b","d","z"],1)[0];
+	var group_id = jsPsych.randomization.sampleWithoutReplacement(["z"],1)[0];
 
 	var dollar_repl = ""; 
 

@@ -148,7 +148,6 @@
 
     timeline.push(goodbye);
 
-
   "))
 
 (defun build-footer ()
