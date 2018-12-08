@@ -33,7 +33,7 @@
 
 (defparameter *trial-count* (let ((init -1)) #'(lambda () (incf init))))
 
-(defparameter *choices* "['Üzülür','Bilemiyorum','Hisleri değişmez','Sevinir']")
+(defparameter *choices* "['Üzülür','Bilemeyiz','Hisleri etkilenmez','Sevinir']")
 
 (defun build-item (item &key (replace-dollar nil))
   (let ((id (first item))
