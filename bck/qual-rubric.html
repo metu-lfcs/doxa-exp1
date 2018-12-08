@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="UTF-8"> 
+	<head>
+		<title>METU CogSci Qualifier</title>
+		<script src="jspsych.js"></script>
+		<script src="plugins/jspsych-instructions.js"></script>
+		<script src="plugins/jspsych-survey-likert.js"></script>
+		<script src="plugins/jspsych-survey-multi-choice.js"></script>
+		<script src="plugins/jspsych-survey-text.js"></script>
+		<script src="plugins/jspsych-html-button-response.js"></script>
+		<link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	<body></body>
+	<script>
+
+
+	// generate a random subject ID with 15 characters
+	var subject_id = jsPsych.randomization.randomID(5);
+	
+	var fname = subject_id.concat('-qual');
+
+	// record the subject_id and group  
+	jsPsych.data.addProperties({
+	  subject: subject_id
+	});
+
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
+
+
+	var students = ['Bulur','İlhan','Kaygusuz','Usal','Vidinli'] 
+
+
+ var info_block = {
+      type: 'survey-text',
+	  preamble: '<h2> METU Cognitive Science PhD Qualifier Evaluation</h2> <h3>Fall 2018</h3><div><p>Thank you for accepting to take part in our PhD qualifier procedure. Please fill the form until you see the THANK YOU screen.</p></div>',
+      questions: [
+        {prompt: 'Your name: ', columns: 50, required: true},
+       // {prompt: 'Student\'s name?',  columns: 50},
+        //{prompt: 'Tell me about your day', value: 'How did it start?', rows:10, columns: 50}
+      ]
+  };
+
+ var likert_block = {
+      type: 'survey-likert',
+	  preamble: '<h4>Annotated Bibliography Evaluation<ht>',
+      questions: [{prompt: "<h4>Completeness</h4> How well does the AB cover the major sources related to the topic?", labels: ['Not well','','','','Very well'], required: true}, 
+				  {prompt: "<h4>Clarity</h4> Are the annotations clear?", labels: ['Not clear','','','','Very clear'], required: true},
+				  {prompt: "<h4>Content</h4> How relevant/informative are the annotations regarding the cited bibliography items?", labels: ['Not relevant','','','','Very relevant'], required: true},
+				  {prompt: "<h4>Coherence</h4> How coherent is the AB considering the topic?", labels: ['Not coherent','','','','Very coherent'], required: true},
+				  {prompt: "<h4>Focus</h4> How much potential and relevance do you see in the AB toward a thesis topic?", labels: ['Low','','','','Excellent'], required: true},
+				  {prompt: "<h4>Overall</h4> What is your overall assessment of the AB?", labels: ['Very low','','','','Very high'], required: true}
+	  			  ],
+  };
+
+ var grade_block = {
+      type: 'survey-text',
+	  preamble: 'If you graded any exam questions, please enter the grades below.',
+      questions: [
+        {prompt: 'Q1:', columns: 2, required: false},
+        {prompt: 'Q2:', columns: 2, required: false},
+        {prompt: 'Q3:', columns: 2, required: false},
+        {prompt: 'Q4:', columns: 2, required: false},
+        {prompt: 'Q5:', columns: 2, required: false},
+        //{prompt: 'Tell me about your day', value: 'How did it start?', rows:10, columns: 50}
+      ]
+  };
+
+
+	var student_block = {
+      type: 'survey-multi-choice',
+      questions: [{prompt: "Please select the candidate to evaluate:", options: students, required:true,}],
+	};
+
+	var comment_block = {
+      type: 'survey-text',
+	  preamble: 'Please indicate any additional comments (optional):',
+      questions: [ {prompt: '', rows: 10, columns: 100, required: false}], 
+      on_finish: function(){ jsPsych.endExperiment('<h2>Thank you for your contribution!</h2>');} 
+	};
+
+
+	var thanks_block = {
+    type: 'instructions',
+    pages: ['<h2>Thank you for your contribution!</h2>'],
+    show_clickable_nav: false
+	};	
+
+		
+  jsPsych.init({
+    timeline: [info_block,student_block,likert_block,grade_block,comment_block],
+	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
+    default_iti: 250
+  });
+
+
+
+//  jsPsych.init({
+ //   timeline: [trial_1,trial_3,trial_4,],
+//	on_finish: function(){ saveData(fname, jsPsych.data.get().csv()); },
+ //   default_iti: 250
+  //});
+	</script>
+</html>
