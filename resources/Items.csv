@@ -49,28 +49,28 @@ Q21,Simay ormanda ne toplamaktadır?,Odun,Çöp,Kozalak,
 Q22,Volkan nasıl bir gün geçirmiştir?,Yoğun,Sıkıcı,Rahat,
 Q23,Dilara lunaparka ne için gitmek istemektedir?,Çarpışan arabalar,Gondol,Güldüren aynalar,
 Q24,Cem nereye gitmektedir?,Tokyo,Londra,New York,
-Item,Question:,,,,Correct,Incorrect,Exact
-A01,81x55,işleminin sonucu,4500,den,küçüktür,büyüktür,4455
-A02,76x46,işleminin sonucu,3550,den,küçüktür,büyüktür,3496
-A03,57x26,işleminin sonucu,1600,den,küçüktür,büyüktür,1482
-A04,96x75,işleminin sonucu,7100,den,büyüktür,küçüktür,7200
-A05,30x66,işleminin sonucu,2050,den,küçüktür,büyüktür,1980
-A06,79x85,işleminin sonucu,6600,den,büyüktür,küçüktür,6715
-A07,84x53,işleminin sonucu,4550,den,küçüktür,büyüktür,4452
-A08,28x35,işleminin sonucu,1050,den,küçüktür,büyüktür,980
-A09,49x17,işleminin sonucu,900,den,küçüktür,büyüktür,833
-A10,23x69,işleminin sonucu,1500,den,büyüktür,küçüktür,1587
-A11,37x93,işleminin sonucu,3350,den,büyüktür,küçüktür,3441
-A12,81x32,işleminin sonucu,2500,den,büyüktür,küçüktür,2592
-A13,22x61,işleminin sonucu,1400,den,küçüktür,büyüktür,1342
-A14,47x39,işleminin sonucu,1750,den,büyüktür,küçüktür,1833
-A15,26X81,işleminin sonucu,2000,den,büyüktür,küçüktür,2106
-A16,91x21,işleminin sonucu,2000,den,küçüktür,büyüktür,1911
-A17,43x22,işleminin sonucu,980,den,küçüktür,büyüktür,946
-A18,16x94,işleminin sonucu,1450,den,büyüktür,küçüktür,1504
-A19,99x19,işleminin sonucu,1850,den,büyüktür,küçüktür,1881
-A20,25x73,işleminin sonucu,1900,den,küçüktür,büyüktür,1825
-A21,87x36,işleminin sonucu,3050,den,büyüktür,küçüktür,3132
-A22,77x18,işleminin sonucu,1450,den,küçüktür,büyüktür,1386
-A23,54x61,işleminin sonucu,3200,den,büyüktür,küçüktür,3294
-A24,45x76,işleminin sonucu,3350,den,büyüktür,küçüktür,3420
+Item,Question:,,,,Correct,Incorrect,Exact,
+A01,81x55,işleminin sonucu,4620,den,küçüktür,büyüktür,4455,165
+A02,76x46,işleminin sonucu,3681,den,küçüktür,büyüktür,3496,185
+A03,57x26,işleminin sonucu,1647,den,küçüktür,büyüktür,1482,165
+A04,96x75,işleminin sonucu,7097,den,büyüktür,küçüktür,7200,-103
+A05,30x66,işleminin sonucu,2150,den,küçüktür,büyüktür,1980,170
+A06,79x85,işleminin sonucu,6520,den,büyüktür,küçüktür,6715,-195
+A07,84x42,işleminin sonucu,3741,den,küçüktür,büyüktür,3528,213
+A08,28x35,işleminin sonucu,1078,den,küçüktür,büyüktür,980,98
+A09,49x17,işleminin sonucu,962,den,küçüktür,büyüktür,833,129
+A10,23x69,işleminin sonucu,1450,den,büyüktür,küçüktür,1587,-137
+A11,37x93,işleminin sonucu,3320,den,büyüktür,küçüktür,3441,-121
+A12,81x32,işleminin sonucu,2450,den,büyüktür,küçüktür,2592,-142
+A13,22x61,işleminin sonucu,1500,den,küçüktür,büyüktür,1342,158
+A14,47x39,işleminin sonucu,1620,den,büyüktür,küçüktür,1833,-213
+A15,26X81,işleminin sonucu,2001,den,büyüktür,küçüktür,2106,-105
+A16,91x21,işleminin sonucu,2142,den,küçüktür,büyüktür,1911,231
+A17,43x22,işleminin sonucu,1052,den,küçüktür,büyüktür,946,106
+A18,16x94,işleminin sonucu,1400,den,büyüktür,küçüktür,1504,-104
+A19,99x19,işleminin sonucu,1751,den,büyüktür,küçüktür,1881,-130
+A20,25x73,işleminin sonucu,1957,den,küçüktür,büyüktür,1825,132
+A21,87x36,işleminin sonucu,2912,den,büyüktür,küçüktür,3132,-220
+A22,77x18,işleminin sonucu,1501,den,küçüktür,büyüktür,1386,115
+A23,54x61,işleminin sonucu,3118,den,büyüktür,küçüktür,3294,-176
+A24,45x76,işleminin sonucu,3302,den,büyüktür,küçüktür,3420,-118
