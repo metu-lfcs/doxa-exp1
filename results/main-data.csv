@@ -287,6 +287,78 @@
 "vmoj3","Buğra","b","71","filler","F13","1222.09999989718","Bilemeyiz","Bilemeyiz",NA
 "vmoj3","Buğra","b","72","question","Q13","1425.10000010952","Kars","None","1"
 "vmoj3","Buğra","b","73","arithmetic","A23","1371.1000001058","küçüktür","None","0"
+"y6s63","Çağda Türkmen ","b","2","filler","F13","22859.7999999765","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","3","question","Q13","2622.60000000242","Kars","None","1"
+"y6s63","Çağda Türkmen ","b","4","arithmetic","A04","40392.200000002","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","5","filler","F09","16301.8999999911","Sevinir","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","6","question","Q09","4305.69999999693","Yemekhane","None","1"
+"y6s63","Çağda Türkmen ","b","7","arithmetic","A06","14075.0000000121","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","8","filler","F12","20202.0000000196","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","9","question","Q12","3439.10000001825","Para biriktirmek","None","1"
+"y6s63","Çağda Türkmen ","b","10","arithmetic","A20","16833.8000000222","büyüktür","None","0"
+"y6s63","Çağda Türkmen ","b","11","critical","C01","36089.5000000014","Hisleri etkilenmez","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","12","question","Q01","2415.49999997392","Arda","None","1"
+"y6s63","Çağda Türkmen ","b","13","arithmetic","A05","10353.8000000119","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","14","filler","F11","13185.3999999873","Üzülür","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","15","question","Q11","2456.29999999143","Ayakkabı","None","1"
+"y6s63","Çağda Türkmen ","b","16","arithmetic","A01","20465.4000000153","büyüktür","None","0"
+"y6s63","Çağda Türkmen ","b","17","filler","F21","9265.89999999851","Üzülür","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","18","question","Q21","3217.70000000857","Odun","None","1"
+"y6s63","Çağda Türkmen ","b","19","arithmetic","A07","50377.899999992","büyüktür","None","0"
+"y6s63","Çağda Türkmen ","b","20","critical","C04","66984.4999999916","Bilemeyiz","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","21","question","Q04","2737.3000000082","Kamp","None","1"
+"y6s63","Çağda Türkmen ","b","22","arithmetic","A24","56192.5000000047","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","23","filler","F23","14392.900000006","Üzülür","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","24","question","Q23","2425.79999999702","Çarpışan arabalar","None","1"
+"y6s63","Çağda Türkmen ","b","25","arithmetic","A19","7818.20000000857","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","26","filler","F08","27862.8000000026","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","27","question","Q08","3193.99999998882","Tenis","None","1"
+"y6s63","Çağda Türkmen ","b","28","arithmetic","A11","43937.4000000246","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","29","filler","F15","14665.1999999881","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","30","question","Q15","2706.69999998063","Altı","None","1"
+"y6s63","Çağda Türkmen ","b","31","arithmetic","A09","15569.1999999983","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","32","critical","C05","15457.0999999996","Bilemeyiz","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","33","question","Q05","2615.79999999981","Matematik","None","1"
+"y6s63","Çağda Türkmen ","b","34","arithmetic","A03","31201.7000000048","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","35","filler","F14","63494.6000000052","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","36","question","Q14","3082.00000002421","İkinci","None","0"
+"y6s63","Çağda Türkmen ","b","37","arithmetic","A08","14738.299999997","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","38","filler","F20","15058.1999999993","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","39","question","Q20","2249.89999999478","Piyango bileti","None","1"
+"y6s63","Çağda Türkmen ","b","40","arithmetic","A16","19386.2000000086","büyüktür","None","0"
+"y6s63","Çağda Türkmen ","b","41","filler","F10","8696.50000002049","Sevinir","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","42","question","Q10","2423.69999998435","Yüksek lisans","None","1"
+"y6s63","Çağda Türkmen ","b","43","arithmetic","A23","29258.6000000015","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","44","critical","C02","17801.200000016","Hisleri etkilenmez","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","45","question","Q02","2586.69999998435","Oyuncak bebek","None","1"
+"y6s63","Çağda Türkmen ","b","46","arithmetic","A02","65903.5999999903","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","47","filler","F24","9487.39999998361","Sevinir","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","48","question","Q24","2471.79999999888","Tokyo","None","1"
+"y6s63","Çağda Türkmen ","b","49","arithmetic","A21","24273.7000000197","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","50","filler","F17","11593.3000000082","Bilemeyiz","Bilemeyiz",NA
+"y6s63","Çağda Türkmen ","b","51","question","Q17","2313.80000000354","Akşam yemeği","None","0"
+"y6s63","Çağda Türkmen ","b","52","arithmetic","A22","14016.3999999929","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","53","critical","C06","16833.1999999937","Bilemeyiz","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","54","question","Q06","2722.70000001322","Müdür","None","1"
+"y6s63","Çağda Türkmen ","b","55","arithmetic","A13","27794.0999999987","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","56","filler","F19","13977.9999999739","Bilemeyiz","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","57","question","Q19","2729.59999999125","Fizik","None","1"
+"y6s63","Çağda Türkmen ","b","58","arithmetic","A14","16930.3000000073","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","59","filler","F18","10343.3000000082","Sevinir","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","60","question","Q18","2415.70000001229","Çilek","None","1"
+"y6s63","Çağda Türkmen ","b","61","arithmetic","A17","34626.4000000078","küçüktür","None","1"
+"y6s63","Çağda Türkmen ","b","62","critical","C03","17993.5000000112","Bilemeyiz","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","63","question","Q03","4290.09999998379","Ofis","None","1"
+"y6s63","Çağda Türkmen ","b","64","arithmetic","A15","21625.5999999996","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","65","filler","F07","13128.5999999968","Üzülür","Üzülür",NA
+"y6s63","Çağda Türkmen ","b","66","question","Q07","2480.20000002068","Kardan adam","None","1"
+"y6s63","Çağda Türkmen ","b","67","arithmetic","A18","22714.7999999877","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","68","filler","F22","13513.6000000052","Sevinir","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","69","question","Q22","2398.49999998137","Yoğun","None","1"
+"y6s63","Çağda Türkmen ","b","70","arithmetic","A10","20402.3000000166","büyüktür","None","1"
+"y6s63","Çağda Türkmen ","b","71","filler","F16","15815.8000000119","Bilemeyiz","Sevinir",NA
+"y6s63","Çağda Türkmen ","b","72","question","Q16","3616.29999999423","Kafe","None","1"
+"y6s63","Çağda Türkmen ","b","73","arithmetic","A12","36776.1999999937","büyüktür","None","1"
 "yxts3","Melisa Araz","b","2","filler","F17","30777.900000001","Hisleri etkilenmez","Bilemeyiz",NA
 "yxts3","Melisa Araz","b","3","question","Q17","4789.19999999925","Akşam yemeği","None","0"
 "yxts3","Melisa Araz","b","4","arithmetic","A15","20070.8000000013","büyüktür","None","1"
