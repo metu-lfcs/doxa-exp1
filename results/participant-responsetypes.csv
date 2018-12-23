@@ -1,43 +1,54 @@
-"","Name","Group","Response","mrt"
-"1","ilyas emre vergili","b","Sevinir",1
-"2","ilyas emre vergili","b","Üzülür",1
-"3","ilyas emre vergili","b","Hisleri etkilenmez",2
-"4","ilyas emre vergili","b","Bilemeyiz",2
-"5","Buğra","b","Sevinir",2
-"6","Buğra","b","Üzülür",1
-"7","Buğra","b","Hisleri etkilenmez",1
-"8","Buğra","b","Bilemeyiz",2
-"9","Melisa Araz","b","Sevinir",2
-"10","Melisa Araz","b","Üzülür",1
-"11","Melisa Araz","b","Hisleri etkilenmez",1
-"12","Melisa Araz","b","Bilemeyiz",2
-"13","Recep","d","Hisleri etkilenmez",1
-"14","Recep","d","Bilemeyiz",5
-"15","berkay erler","d","Bilemeyiz",6
-"16","adarcemlağap","d","Üzülür",1
-"17","adarcemlağap","d","Hisleri etkilenmez",1
-"18","adarcemlağap","d","Bilemeyiz",4
-"19","Beril Kumpasoğlu","d","Bilemeyiz",6
-"20","Halilcan Tanrıöveri","d","Üzülür",1
-"21","Halilcan Tanrıöveri","d","Bilemeyiz",5
-"22","Cemre Yılmaz","d","Bilemeyiz",6
-"23","Esra","d","Üzülür",1
-"24","Esra","d","Bilemeyiz",5
-"25","Burcu Ezgi Vergili","d","Sevinir",1
-"26","Burcu Ezgi Vergili","d","Üzülür",2
-"27","Burcu Ezgi Vergili","d","Bilemeyiz",3
-"28","Nejdet Eren Pinaz","d","Bilemeyiz",6
-"29","Büşra Soylu","z","Üzülür",1
-"30","Büşra Soylu","z","Bilemeyiz",5
-"31","Hasret Cem ","z","Bilemeyiz",6
-"32","Elif Paksoy","z","Üzülür",1
-"33","Elif Paksoy","z","Bilemeyiz",5
-"34","Zafer","z","Bilemeyiz",6
-"35","ÖZGÜR","z","Bilemeyiz",6
-"36","Mustafa Yiğit Sayılgan","z","Bilemeyiz",6
-"37","Onur Evcen","z","Sevinir",3
-"38","Onur Evcen","z","Üzülür",2
-"39","Onur Evcen","z","Bilemeyiz",1
-"40","Duha Alioğlu","z","Sevinir",3
-"41","Duha Alioğlu","z","Üzülür",2
-"42","Duha Alioğlu","z","Bilemeyiz",1
+"Name","Group","Response","Count"
+"ilyas emre vergili","b","Sevinir",1
+"ilyas emre vergili","b","Üzülür",1
+"ilyas emre vergili","b","Hisleri etkilenmez",2
+"ilyas emre vergili","b","Bilemeyiz",2
+"Nihan Bayazıt","b","Sevinir",1
+"Nihan Bayazıt","b","Üzülür",2
+"Nihan Bayazıt","b","Hisleri etkilenmez",1
+"Nihan Bayazıt","b","Bilemeyiz",2
+"Betül Sena ŞEN","b","Sevinir",1
+"Betül Sena ŞEN","b","Üzülür",1
+"Betül Sena ŞEN","b","Hisleri etkilenmez",2
+"Betül Sena ŞEN","b","Bilemeyiz",2
+"Buğra","b","Sevinir",2
+"Buğra","b","Üzülür",1
+"Buğra","b","Hisleri etkilenmez",1
+"Buğra","b","Bilemeyiz",2
+"Melisa Araz","b","Sevinir",2
+"Melisa Araz","b","Üzülür",1
+"Melisa Araz","b","Hisleri etkilenmez",1
+"Melisa Araz","b","Bilemeyiz",2
+"Recep","d","Hisleri etkilenmez",1
+"Recep","d","Bilemeyiz",5
+"berkay erler","d","Bilemeyiz",6
+"adarcemlağap","d","Üzülür",1
+"adarcemlağap","d","Hisleri etkilenmez",1
+"adarcemlağap","d","Bilemeyiz",4
+"Beril Kumpasoğlu","d","Bilemeyiz",6
+"Halilcan Tanrıöveri","d","Üzülür",1
+"Halilcan Tanrıöveri","d","Bilemeyiz",5
+"Cemre Yılmaz","d","Bilemeyiz",6
+"Esra","d","Üzülür",1
+"Esra","d","Bilemeyiz",5
+"Burcu Ezgi Vergili","d","Sevinir",1
+"Burcu Ezgi Vergili","d","Üzülür",2
+"Burcu Ezgi Vergili","d","Bilemeyiz",3
+"Nejdet Eren Pinaz","d","Bilemeyiz",6
+"Büşra Soylu","z","Üzülür",1
+"Büşra Soylu","z","Bilemeyiz",5
+"Hasret Cem ","z","Bilemeyiz",6
+"Elif Paksoy","z","Üzülür",1
+"Elif Paksoy","z","Bilemeyiz",5
+"Zafer","z","Bilemeyiz",6
+"ÖZGÜR","z","Bilemeyiz",6
+"Ceyda Yolgörmez","z","Sevinir",1
+"Ceyda Yolgörmez","z","Üzülür",2
+"Ceyda Yolgörmez","z","Bilemeyiz",3
+"Mustafa Yiğit Sayılgan","z","Bilemeyiz",6
+"Onur Evcen","z","Sevinir",3
+"Onur Evcen","z","Üzülür",2
+"Onur Evcen","z","Bilemeyiz",1
+"Duha Alioğlu","z","Sevinir",3
+"Duha Alioğlu","z","Üzülür",2
+"Duha Alioğlu","z","Bilemeyiz",1
