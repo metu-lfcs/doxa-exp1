@@ -38,7 +38,7 @@
 	var goodbye = {
 		on_start: function(){ saveData(fname, jsPsych.data.get().csv()); }, 
 	    type: 'instructions',
-	    pages: [ 'Katılımınız için teşekkürler.<br/>Bu araştırma hakkında daha fazla bilgi almak isterseniz sorularınızı e171627@metu.edu.tr adresine yöneltebilirsiniz.<br/>Lütfen şimdi araştırmacıya deneyi bitirdiğinizi söyleyiniz.'
+	    pages: [ 'Katılımınız için teşekkürler.<br/>Bu araştırma hakkında daha fazla bilgi almak isterseniz sorularınızı samet.albayrak@metu.edu.tr adresine yöneltebilirsiniz.<br/>Lütfen şimdi araştırmacıya deneyi bitirdiğinizi söyleyiniz.'
 	    ],
 	    show_clickable_nav: false 
 	};
