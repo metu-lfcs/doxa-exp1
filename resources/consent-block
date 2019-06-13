@@ -30,18 +30,23 @@
 
 	var instructions = {
 	    type: 'instructions',
-	    pages: [ ' <div style="margin: 50px auto; width: 800px; height: 250px; align: left" id="consent" align="left"> Birazdan ekranda çeşitli kısa metinler gösterilecektir. Bu metinler hakkında bir takım sorular yanıtlamanız istenecektir. Lütfen metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.  <br/> <br/> Her metin hakkında ikişer soru yanıtlamanız istenecektir: İlk soru metinle birlikte, ikinci soru ise metinden ayrı bir ekranda gösterilecektir. Bu soruların ardından bir aritmetik sorusu çözmeniz istenecektir. <b>Aritmetik sorularını mümkün olduğu kadar hızlı bir biçimde, gerekirse tahmin yürüterek yanıtlamanız beklenmektedir.</b> <br/> <br/> Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.  <br/> <br/> Lütfen yönergeleri takip ederek testi tamamlayın.'
+	    pages: [ ' <div style="margin: 50px auto; width: 800px; height: 250px; align: left" id="consent" align="left"> Birazdan ekranda çeşitli kısa metinler gösterilecektir. Bu metinler hakkında bir takım sorular yanıtlamanız istenecektir. Lütfen metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.  <br/> <br/> Her metin hakkında ikişer soru yanıtlamanız istenecektir: İlk soru metinle birlikte, ikinci soru ise metinden ayrı bir ekranda gösterilecektir.<br/> <br/> Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.  <br/> <br/> Lütfen yönergeleri takip ederek testin ilk kısmını tamamlayın. Otomatik olarak ikinci kısma yönlendirileceksiniz.'
 	    ],
 	    show_clickable_nav: true 
 	};
 
 	var goodbye = {
-		on_start: function(){ saveData(fname, jsPsych.data.get().csv()); }, 
-	    type: 'instructions',
-	    pages: [ 'Katılımınız için teşekkürler.<br/>Bu araştırma hakkında daha fazla bilgi almak isterseniz sorularınızı samet.albayrak@metu.edu.tr adresine yöneltebilirsiniz.<br/>Lütfen şimdi araştırmacıya deneyi bitirdiğinizi söyleyiniz.'
-	    ],
-	    show_clickable_nav: false 
+		check_fn: function(){ saveData(fname, jsPsych.data.get().csv()); }, 
+		url: "http://lfcs.ii.metu.edu.tr/limesurvey/index.php/562288?lang=tr",
+	    type: 'external-html',
 	};
 
+	//var goodbye = {
+	//	on_start: function(){ saveData(fname, jsPsych.data.get().csv()); }, 
+	 //   type: 'instructions',
+	  //  pages: [ 'Katılımınız için teşekkürler.<br/>Bu araştırma hakkında daha fazla bilgi almak isterseniz sorularınızı samet.albayrak@metu.edu.tr adresine yöneltebilirsiniz.<br/>Lütfen şimdi araştırmacıya deneyi bitirdiğinizi söyleyiniz.'
+	   // ],
+	    //show_clickable_nav: false 
+//	};
 
 

@@ -2,7 +2,7 @@
 Birazdan size okuyup hakkında sorular cevaplandırmanız için çeşitli kısa metinler verilecektir. Bu metinler hakkında bir takım sorular yanıtlamanız istenecektir. Metinleri dikkatlice okuyup anlatılan durumları anladığınızdan emin olun.
 <br/>
 <br/>
-Her metin hakkında ikişer soru yanıtlamanız istenecektir: İlk soru metinle birlikte, ikinci soru ise metinden ayrı bir ekranda gösterilecektir. Metinler arasında birer aritmetik sorusu çözmeniz istenecektir. <b>Aritmetik sorularını mümkün olduğu kadar hızlı bir biçimde, gerekirse tahmin yürüterek yanıtlamanız beklenmektedir.</b> 
+Her metin hakkında ikişer soru yanıtlamanız istenecektir: İlk soru metinle birlikte, ikinci soru ise metinden ayrı bir ekranda gösterilecektir.
 <br/>
 <br/>
 Lütfen tüm soruları size en doğru gelen seçeneği işaretleyerek yanıtlayın ve bir sonraki aşamaya geçmek için ‘sonraki’ tuşuna tıklayın.
