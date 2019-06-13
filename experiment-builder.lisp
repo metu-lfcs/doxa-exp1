@@ -33,7 +33,8 @@
 
 (defparameter *trial-count* (let ((init -1)) #'(lambda () (incf init))))
 
-(defparameter *choices* "['Üzülür','Bilemeyiz','Hisleri etkilenmez','Sevinir']")
+; (defparameter *choices* "['Üzülür','Bilemeyiz','Hisleri etkilenmez','Sevinir']")
+(defparameter *choices* "['Üzülür','Sevinir']")
 
 (defun build-item (item &key (replace-dollar nil))
   (let ((id (first item))
@@ -129,19 +130,19 @@
         var k = filler_profile[i];
         for (var j = 0; j < k; j++){
             timeline = timeline.concat(filler_repo[filler_clock]);
-            timeline.push(arith_repo[arith_clock])
+            //timeline.push(arith_repo[arith_clock])
             arith_clock++;
             filler_clock++;
         }
         timeline = timeline.concat(critical_repo[critical_clock]);
-        timeline.push(arith_repo[arith_clock]);
+        //timeline.push(arith_repo[arith_clock]);
         arith_clock++;
         critical_clock++;
     }
 
-    for (var i = 0; i < filler_profile[-1]; i++){
+    for (var i = 0; i < filler_profile[filler_profile.length - 1]; i++){
         timeline = timeline.concat(filler_repo[filler_clock]);
-        timeline.push(arith_repo[arith_clock])
+        //timeline.push(arith_repo[arith_clock])
         arith_clock++;
         filler_clock++;
     }
